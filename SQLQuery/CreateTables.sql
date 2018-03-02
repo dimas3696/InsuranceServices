@@ -1,3 +1,5 @@
+CREATE DATABASE InsurnceServices
+
 CREATE TABLE Clients (
 	id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	LastName nvarchar(30) NOT NULL,
@@ -25,3 +27,6 @@ CREATE TABLE ClientsDocument(
 	AgencyWhoIssued nvarchar(80)
 );
 GO
+
+ALTER TABLE ClientsDocument
+ADD id_client int FOREIGN KEY REFERENCES Clients(id)
