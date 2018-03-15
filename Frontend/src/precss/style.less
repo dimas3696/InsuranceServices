@@ -1,0 +1,86 @@
+@import "smart-grid.less";
+@import "scaffolding.less";
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	
+}
+
+.main-header {
+	color: #8BBEAD;
+	background-color: #0E0E0E;
+}
+
+.discounts {
+	&--item {
+		display: none;
+
+		&__active{
+			display: block;
+		}
+	}
+
+	&--check {
+		font-size: 0;
+		border: none;
+		padding: 0;
+
+		width: 10px;
+		height: 10px;
+
+		background-color: transparent;
+		border: 1px solid #8BBEAD;
+		border-radius: 50%;
+	}
+}
+
+.services {
+	&--list {
+		.row-flex();
+		justify-content: center;
+	}
+
+	&--item {
+		background-color: rgba(255, 0, 0, .5);
+		.col();
+		.size(6);
+		.size-xs(10);
+		margin-bottom: 20px;
+	}
+}
+
+.service {
+	&--list {
+		.row-flex();
+		justify-content: space-around;
+	}
+
+	&--item {
+		background-color: rgba(255, 255, 0, .5) ;
+		.col();
+		.size(3);
+		.size-sm(5);
+		.size-xs(12);
+	}
+
+	&--header {
+		text-align: center;
+	}
+}
+
+.faq {
+	&--container{
+		display: flex;
+		justify-content: center;
+	}
+
+	&--header {
+		display: inline-block;
+		margin-right: 4px;
+	}
+	&--text {
+		display: inline-block;
+	}
+}

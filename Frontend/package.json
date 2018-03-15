@@ -1,0 +1,25 @@
+{
+  "name": "20170526",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "npm": "^5.7.1",
+    "smart-grid": "^2.0.1"
+  },
+  "devDependencies": {
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-less": "^3.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
