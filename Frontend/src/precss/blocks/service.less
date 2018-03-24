@@ -1,0 +1,54 @@
+.service {
+	&--list {
+		.row-flex();
+		justify-content: space-around;
+	}
+
+	&--item {
+		width: 30%;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		
+		&:first-child {
+			margin-left: 20px;
+		}
+		&:last-child {
+			margin-right: 20px;
+		}
+
+	}
+
+	&--header {
+		margin-top: -65px;
+		margin-bottom: 5px;
+		padding-bottom: 30px;
+
+		font-family: 'Haettenschweiler', sans-serif;
+		font-size: 32px;
+		color: #192822;
+
+		background-color: #588b52;
+	}
+
+	&--about {
+		flex-grow: 1;
+
+		margin-bottom: 15px;
+		
+		font-size: 18px;
+		color: #394d44;
+	}
+
+	&--price {
+		margin-bottom: 5px;
+
+		font-size: 14px;
+		color: #192822;
+		font-weight: bold;
+	}
+
+	&--link {
+		margin-bottom: 10px;
+	}
+}

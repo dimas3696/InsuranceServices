@@ -9,7 +9,7 @@
     "gulp-clean-css": "^3.9.3",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.6.4",
-    "npm": "^5.7.1",
+    "npm": "^5.8.0",
     "smart-grid": "^2.0.1"
   },
   "devDependencies": {

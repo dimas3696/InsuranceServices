@@ -1,191 +1,124 @@
 @import "smart-grid.less";
+@import "variables.less";
 @import "fonts.less";
 @import "scaffolding.less";
+@import "blocks/main-header.less";
+@import "blocks/contacts.less";
+@import "blocks/discounts.less";
+@import "blocks/services.less";
+@import "blocks/service.less";
 
 
-.main-header {
-	padding: 5px 0;
-
-	font-family: 'Nairi';
-	font-size: 16px;
-	color: #92d5bc;
-
-	background: #050505 url(../img/header-bd.jpg) 0 0 no-repeat;
-	background-size: cover;
+.about-us {
 	&--wrap {
-		.row-flex();
-	}
-	&--logo {
-		.col();
-		width: auto;
-		height: 30px;
-		margin-top: auto;
-		margin-bottom: auto;
-	}
-	&--search {
-		.col();
-		.size(4);
-		height: auto;
-		background-color: #fff;
-	}
-}
-
-.contacts {
-	&--list {
-		.col();
-		.shift(1);
-		.size(2);
-	}
-	&--item {
-	}
-}
-
-.discounts {	
-	.container {
-		position: relative;
-	}
-
-	&--list {
-		.row-flex();
-	}
-	
-	&--item {
-		.col();
-		.size(12);
+		max-width: 1400px;
 		margin: 0 auto;
-		padding-bottom: 10px;
+		padding: 1px;
+		padding-bottom: 200px;
 
-		display: none;
-		position: relative;
+		background: url(../img/about-us-bg.jpg) center no-repeat;
+		background-size: cover;
 
-		overflow: hidden;
-
-		&__active{
-			display: block;
-		}
+		border-bottom-right-radius: 75px;
+		border-bottom-left-radius: 75px;
 	}
 
 	&--header {
-		font-size: 50px;
-		font-weight: 700;
-		color: #232e30;
-		margin-top: 60px;
-		margin-left: 100px;
-	}
-	&--img {
-			width: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
+		margin-left: 47%;
+		margin-bottom: 35px;
+		margin-top: 70px;
 
-			z-index: -1;
+		font-size: 48px;
+		font-family: 'CenturyGothic', sans-serif;
+		color: #161e1b;
 	}
 
 	&--info {
-		margin-top: 30px;
-		margin-bottom: 50px;
-		padding: 10px 100px;
+		margin-left: 47%;
+		margin-bottom: 100px;
+		padding-right: 70px;
 
-		color: #95b1b5;
-
-		background-color: rgba(0, 0, 0, 0.5);
-	}
-
-	&--btns {
-		position: relative;
-		width: 100%;
-	}
-
-	&--btn {
-		font-size: 0;
-		border: none;
-		padding: 0;
-
-		width: 27px;
-		height: 52px;
-
-		background: url(../img/arrow.png) center no-repeat;
-		background-color: red;
-
-		&__next {
-			transform: rotate(180deg);
-			position: absolute;
-			right: 0;
-		}
-	}
-
-	&--checks {
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translate(-50%);
-
-		display: flex;
-		justify-content: space-between;
-
-		width: 70px;
-		margin-bottom: 10px;
-	}
-
-	&--check {
-		font-size: 0;
-		border: none;
-		padding: 0;
-
-		width: 15px;
-		height: 15px;
-
-		background-color: transparent;
-		border: 2px solid #8BBEAD;
-		border-radius: 50%;
-	}
-}
-
-.services {
-	&--list {
-		.row-flex();
-		justify-content: center;
-	}
-
-	&--item {
-		background-color: rgba(255, 0, 0, .5);
-		.col();
-		.size(6);
-		.size-xs(10);
-		margin-bottom: 20px;
-	}
-}
-
-.service {
-	&--list {
-		.row-flex();
-		justify-content: space-around;
-	}
-
-	&--item {
-		background-color: rgba(255, 255, 0, .5) ;
-		.col();
-		.size(3);
-		.size-sm(5);
-		.size-xs(12);
-	}
-
-	&--header {
-		text-align: center;
+		font-size: 23px;
+		font-family: 'CenturyGothic', sans-serif;
 	}
 }
 
 .faq {
-	&--container{
-		display: flex;
-		justify-content: center;
+	margin-top: -170px;
+	margin-bottom: 100px;
+
+	font-family: 'CenturyGothic', sans-serif;
+	font-size: 48px;
+	color: #161e1b;
+
+	&--wrap{
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 20px 0;
+
+		text-align: center;
+		background-color: rgba(255, 255, 255, 0.42);
 	}
 
 	&--header {
 		display: inline-block;
-		margin-right: 4px;
 	}
+
+	&--link {
+		color: #446822;
+	}
+
 	&--text {
 		display: inline-block;
+	}
+}
+
+.main-footer {
+	padding-bottom: 30px;
+
+	font-family: 'CenturyGothic', sans-serif;
+	font-size: 18px;
+	color: #35521a;
+
+	&--wrap {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		box-sizing: border-box;
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	&--list {
+		margin-left: 100px;
+	}
+
+	&--item{
+		margin-bottom: 8px;
+	}
+
+	&--link {
+		color: #35521a;
+		border-bottom: 1px solid #35521a;
+	}
+
+	&--asks {
+		font-size: 36px;
+	}
+
+	&--phone {
+		display: block;
+		margin-bottom: 20px;
+		padding-right: 45px;
+		
+		font-size: 36px;
+		color: #35521a;
+		text-align: right;
+	}
+	
+	&--address {
+		text-align: right;
 	}
 }

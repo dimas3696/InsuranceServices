@@ -4,6 +4,30 @@
   .wrapper();
 }
 
+body {
+  font-size: 20px;
+  font-family: 'CoreSans', sans-serif;
+
+  background-color: @main-bg;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+abbr {
+  text-decoration: none;
+}
+
 .visually-hidden {
   position: absolute;
 
@@ -19,25 +43,7 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-body {
-  font-size: 20px;
-  font-family: 'CoreSans';
-}
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: #92d5bc;
-  text-decoration: none;
-}
-
-button{
-  cursor: pointer;
-}
-
-abbr {
-  text-decoration: none;
+.accent-text {
+  color: @accent-text-color;
 }

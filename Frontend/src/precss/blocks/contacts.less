@@ -1,0 +1,51 @@
+.contacts {
+	&--item {
+		margin-bottom: 6px;
+	}
+
+	&--link {
+		position: relative;
+
+		color: @header-color;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: -30px;
+			transform: translateY(-50%);
+		}
+		&__e-mail {
+			&::before {
+				width: 23px;
+				height: 17px;
+
+				background: url(../../img/mail.png) center no-repeat;
+				background-size: cover;
+			}
+		}
+
+		&__phone {
+			&::before {
+				width: 20px;
+				height: 21px;
+				left: -27px;
+
+				background: url(../../img/phone.png) center no-repeat;
+				background-size: cover;
+			}
+		}
+
+		&__location {
+			&::before {
+				width: 17px;
+				height: 23px;
+				left: -25px;
+
+				background: url(../../img/location.png) center no-repeat;
+				background-size: cover;
+			}
+		}
+	}
+}
+
