@@ -1,0 +1,97 @@
+.main-footer {
+  padding-bottom: 30px;
+
+  font-family: 'CenturyGothic', sans-serif;
+  font-size: 18px;
+  color: #35521a;
+  
+  .lg-block({
+    font-size: 16px;
+    });
+  .md-block({
+    font-size: 14px;
+    });
+  .sm-block({
+    font-size: 16px;
+    padding-bottom: 0;
+    text-align: center;
+    });
+
+
+  &--wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 30px;
+
+    .sm-block({
+      padding: 0 20px;
+      justify-content: center;
+      });
+  }
+  
+  &--wrapper {
+    .sm-block({
+      order: -1;
+      });
+  }
+
+  &--wrap {
+  
+  }
+
+  &--list {
+  }
+
+  &--item{
+    margin-bottom: 8px;
+  }
+
+  &--link {
+    color: #35521a;
+    border-bottom: 1px solid #35521a;
+  }
+
+  &--asks {
+    order: 2;
+    font-size: 36px;
+
+    .lg-block({
+      font-size: 26px;
+      });
+    .md-block({
+      font-size: 20px;
+      });
+  }
+
+  &--phone {
+    display: block;
+    margin-bottom: 20px;
+    padding-right: 45px;
+    
+    font-size: 36px;
+    color: #35521a;
+    text-align: right;
+
+    .lg-block({
+      font-size: 26px;
+      });
+    .md-block({
+      font-size: 20px;
+      });
+    .sm-block({
+      margin-bottom: 10px;
+      padding-right: 0;
+      text-align: center;
+      });
+  }
+  
+  &--address {
+    text-align: right;
+
+    .sm-block({
+      margin-bottom: 30px;
+      text-align: center;
+      });
+  }
+}

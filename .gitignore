@@ -1,3 +1,4 @@
+node_modules
 .vs/InsuranceServices/v15/.suo
 .vs/InsuranceServices/v15/sqlite3/storage.ide
 InsuranceServices/App_Data/InsuranceServices.mdf

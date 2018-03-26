@@ -7,118 +7,12 @@
 @import "blocks/discounts.less";
 @import "blocks/services.less";
 @import "blocks/service.less";
+@import "blocks/about-us.less";
+@import "blocks/faq.less";
+@import "blocks/main-footer.less";
 
-
-.about-us {
-	&--wrap {
-		max-width: 1400px;
-		margin: 0 auto;
-		padding: 1px;
-		padding-bottom: 200px;
-
-		background: url(../img/about-us-bg.jpg) center no-repeat;
-		background-size: cover;
-
-		border-bottom-right-radius: 75px;
-		border-bottom-left-radius: 75px;
-	}
-
-	&--header {
-		margin-left: 47%;
-		margin-bottom: 35px;
-		margin-top: 70px;
-
-		font-size: 48px;
-		font-family: 'CenturyGothic', sans-serif;
-		color: #161e1b;
-	}
-
-	&--info {
-		margin-left: 47%;
-		margin-bottom: 100px;
-		padding-right: 70px;
-
-		font-size: 23px;
-		font-family: 'CenturyGothic', sans-serif;
-	}
-}
-
-.faq {
-	margin-top: -170px;
-	margin-bottom: 100px;
-
-	font-family: 'CenturyGothic', sans-serif;
-	font-size: 48px;
-	color: #161e1b;
-
-	&--wrap{
-		max-width: 1400px;
-		margin: 0 auto;
-		padding: 20px 0;
-
-		text-align: center;
-		background-color: rgba(255, 255, 255, 0.42);
-	}
-
-	&--header {
-		display: inline-block;
-	}
-
-	&--link {
-		color: #446822;
-	}
-
-	&--text {
-		display: inline-block;
-	}
-}
-
-.main-footer {
-	padding-bottom: 30px;
-
-	font-family: 'CenturyGothic', sans-serif;
-	font-size: 18px;
-	color: #35521a;
-
-	&--wrap {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-
-		box-sizing: border-box;
-		max-width: 1400px;
-		margin: 0 auto;
-		padding: 0 20px;
-	}
-
-	&--list {
-		margin-left: 100px;
-	}
-
-	&--item{
-		margin-bottom: 8px;
-	}
-
-	&--link {
-		color: #35521a;
-		border-bottom: 1px solid #35521a;
-	}
-
-	&--asks {
-		font-size: 36px;
-	}
-
-	&--phone {
-		display: block;
-		margin-bottom: 20px;
-		padding-right: 45px;
-		
-		font-size: 36px;
-		color: #35521a;
-		text-align: right;
-	}
-	
-	&--address {
-		text-align: right;
-	}
-}
+.sm-block({
+	.container {
+    max-width: 100%;
+  }
+	});

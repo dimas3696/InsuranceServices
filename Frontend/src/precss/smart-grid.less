@@ -19,16 +19,22 @@
 @offset_xs_one_side: (@offset_xs / 2);
 
 @fields: 30px;
-@fields_sm: 15px;
+@fields_md: 5px;
+@fields_sm: 0px;
 
 .wrapper-full(){
   padding-left: @fields;
   padding-right: @fields;
 
+  .md-block({
+    padding-left: @fields_md;
+    padding-right: @fields_md;
+    });
   .sm-block({
     padding-left: @fields_sm;
     padding-right: @fields_sm;
     });
+
 }
 
 .row-offsets(){
