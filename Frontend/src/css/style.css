@@ -194,48 +194,36 @@ button {
   content: '';
   position: absolute;
   top: 50%;
-  left: -30px;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%)
 }
 .contacts--link__e-mail::before {
-  width: 23px;
-  height: 17px;
+  width: 21px;
+  height: 15px;
+  left: -28px;
   background: url(../../img/mail.png) center/cover no-repeat
 }
 .contacts--link__phone::before {
-  width: 20px;
-  height: 21px;
-  left: -27px;
+  width: 18px;
+  height: 19px;
+  left: -25px;
   background: url(../../img/phone.png) center/cover no-repeat
 }
 .contacts--link__location::before {
-  width: 17px;
-  height: 23px;
-  left: -25px;
+  width: 16px;
+  height: 22px;
+  left: -24px;
   background: url(../../img/location.png) center/cover no-repeat
 }
 .discounts {
+  position: relative;
   margin-bottom: 10px
 }
-.discounts--container,
 .discounts--wrap {
   position: relative
 }
-.discounts--list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-left: -5px;
-  margin-right: -5px
-}
 .discounts--item {
-  box-sizing: border-box;
-  word-wrap: break-word;
-  width: calc(100% - 10px);
   margin: 0 auto;
   display: none;
   position: relative;
@@ -318,6 +306,8 @@ button {
   border-radius: 50%
 }
 .services--list {
+  margin-left: -5px;
+  margin-right: -5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -329,16 +319,16 @@ button {
 }
 .services--item {
   position: relative;
+  width: calc(50% - 10px);
   box-sizing: border-box;
   word-wrap: break-word;
   margin-left: 5px;
   margin-right: 5px;
-  width: calc(50% - 10px);
   margin-bottom: 10px;
   background-color: #99ce94
 }
 .services--item__long {
-  width: calc(100% - 10px)
+  width: 100%
 }
 .services--item__long .service--item {
   width: calc(16.666666666666668% - 10px)
@@ -396,8 +386,6 @@ button {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-left: -5px;
-  margin-right: -5px;
   -ms-flex-pack: distribute;
   justify-content: space-around
 }
@@ -603,7 +591,8 @@ button {
     font-size: 20px
   }
   .faq {
-    font-size: 32px
+    margin-bottom: 120px;
+    font-size: 31px
   }
   .main-footer {
     font-size: 16px
@@ -613,7 +602,7 @@ button {
     font-size: 26px
   }
 }
-@media screen and (max-width:960px) {
+@media screen and (max-width:980px) {
   .container {
     padding-left: 5px;
     padding-right: 5px
@@ -641,7 +630,7 @@ button {
     display: none
   }
   .services--item {
-    width: calc(100% - 10px);
+    width: 100%;
     margin-bottom: 7px
   }
   .service--item,
@@ -660,6 +649,7 @@ button {
     font-size: 18px
   }
   .faq {
+    font-size: 34px;
     margin-bottom: 90px
   }
   .faq--wrap {
@@ -676,8 +666,7 @@ button {
 @media screen and (max-width:780px) {
   .container {
     padding-left: 0;
-    padding-right: 0;
-    max-width: 100%
+    padding-right: 0
   }
   .main-header--wrap {
     -ms-flex-wrap: wrap;
@@ -713,7 +702,13 @@ button {
   .discounts--header {
     margin-left: 50px
   }
+  .services--list {
+    margin-left: 0;
+    margin-right: 0
+  }
   .services--item {
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 5px
   }
   .service--header {
@@ -733,7 +728,8 @@ button {
     text-align: center
   }
   .faq {
-    font-size: 29px
+    font-size: 29px;
+    margin-bottom: 110px
   }
   .main-footer {
     font-size: 16px;
@@ -747,9 +743,13 @@ button {
     justify-content: center
   }
   .main-footer--wrapper {
+    width: 100%;
     -webkit-box-ordinal-group: 0;
     -ms-flex-order: -1;
     order: -1
+  }
+  .main-footer--nav {
+    width: 100%
   }
   .main-footer--phone {
     margin-bottom: 10px;
@@ -802,8 +802,8 @@ button {
     font-size: 35px
   }
   .discounts--img {
-    min-width: 150%;
-    height: 100%
+    min-width: 100%;
+    height: 150%
   }
   .discounts--info {
     font-size: 15px;
@@ -825,6 +825,10 @@ button {
   .service--header {
     font-size: 25px
   }
+  .about-us--wrap {
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px
+  }
   .about-us--info {
     padding: 0 10px;
     font-size: 16px
@@ -833,9 +837,19 @@ button {
     font-size: 22px
   }
 }
+@media screen and (max-width:450px) {
+  .discounts--img {
+    min-width: 100%;
+    height: 100%
+  }
+}
 @media screen and (max-width:350px) {
   .main-header {
     font-size: 10px
+  }
+  .discounts--img {
+    min-width: 150%;
+    height: 100%
   }
 }
 /*# sourceMappingURL=style.css.map */

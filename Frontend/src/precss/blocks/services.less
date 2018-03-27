@@ -12,28 +12,37 @@
 
 .services {
 	&--list {
+    .row-flex();
 		display: flex;
     flex-wrap: wrap;
 		justify-content: space-between;
+
+    .sm-block({
+      margin-left: 0;
+      margin-right: 0;
+      });
 	}
 
 	&--item {
 		position: relative;
-		.col();
-		.size(6);
-    .size-md(12);
+    .size(6);
+    .col();
+
     margin-bottom: 10px;
     background-color: #99ce94;
 
     .md-block({
+      width: 100%;
       margin-bottom: 7px;
       });
     .sm-block({
+      margin-left: 0;
+      margin-right: 0;
       margin-bottom: 5px;
       });
 
     &__long {
-     .size(12);
+     width: 100%;
      .service--item {
       .size(2);
       .size-md(3);

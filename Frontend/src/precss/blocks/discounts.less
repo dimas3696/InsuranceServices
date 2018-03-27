@@ -11,26 +11,20 @@
  }
 
  .discounts {
+ 	position: relative;
  	margin-bottom: 10px;
  	.md-block({
  		margin-bottom: 5px;
  		});
-
- 	&--container {
- 		position: relative;
- 	}
 
  	&--wrap {
  		position: relative;
  	}
 
  	&--list {
- 		.row-flex();
  	}
  	
  	&--item {
- 		.col();
- 		.size(12);
  		margin: 0 auto;
 
  		display: none;
@@ -75,9 +69,17 @@
  		z-index: -1;
 
  		.xs-block({
+ 			min-width: 100%;
+ 			height: 150%;
+ 			});
+ 		@media screen and (max-width: 450px){
+ 			min-width: 100%;
+ 			height: 100%;
+ 		}
+ 		@media screen and (max-width: 350px){
  			min-width: 150%;
  			height: 100%;
- 			});
+ 		}
  	}
 
  	&--info {
