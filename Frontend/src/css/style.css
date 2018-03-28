@@ -384,9 +384,6 @@ button {
 .services--header__long {
   text-align: center
 }
-.services--insure {
-  color: #192822
-}
 .services--bg {
   position: absolute;
   top: 0;
@@ -547,6 +544,11 @@ button {
 }
 .main-footer--address {
   text-align: right
+}
+.test {
+  width: 100px;
+  height: 100px;
+  display: inline-block
 }
 @media screen and (max-width:1400px) {
   .main-header {
