@@ -4,15 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Insurance Services</title> 
-  <link href="css/style.css" rel="stylesheet">  
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
   <h1 class="visually-hidden">Insurance Services - страховая компания</h1>
 
   <header class="main-header container">
     <div class="main-header--wrap">
-      <img class="main-header--logo" src="img/logo.png" alt="Insurance Services" width="884" height="79">
-      <div class="main-header--search"></div>
+      <img class="main-header--logo" src="img/logo.png" alt="Insurance Services" width="450" height="40">
+      <h2 class="visually-hidden">Поиск по сайту:</h2>
+     <form class="main-header--search" action="#">
+       <button class="main-header--show">Показать поле поиска</button>
+       <label class="visually-hidden" for="search">Введите данные для поиска:</label>
+       <input class="main-header--input" id="seacrh" type="text">
+     </form>
       <h2 class="visually-hidden">Наши данные для связи:</h2>
       <ul class="contacts--list">
         <li class="contacts--item">
@@ -27,7 +32,6 @@
           <a href="#" class="contacts--link contacts--link__location">найти нас</a>
         </li>
       </ul>
-
     </div>
   </header>
 

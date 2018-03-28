@@ -9,7 +9,7 @@
 	.xs-block({
 		font-size: 12px;
 		});
-	@media screen and (max-width: 350px){
+	@media screen and (max-width: 380px){
 		font-size: 10px;
 	}
 
@@ -27,7 +27,6 @@
 			flex-wrap: wrap;
 			});
 		.xs-block({
-			display: block;
 			padding: 5px 0;
 			});
 	}
@@ -38,8 +37,6 @@
 		.size-xs(9);
 		width: 450px;
 		height: auto;
-		margin-top: auto;
-		margin-bottom: auto;
 
 		.lg-block({
 			width: 350px
@@ -49,29 +46,107 @@
 			margin-bottom: 20px;
 			});
 		.xs-block({
-			margin-right: auto;
-			margin-left: 5px;
+			margin-left: 10px;
 			});
 	}
 
 	&--search {
-		.size-sm(10);
-		width: 450px;
-		height: 50px;
-		background-color: #fff;
-		opacity: 0.2;
+		display: flex;
+		align-items: center;
 
-		.lg-block({
-			width: 300px
+		.sm-block({
+			order: 1;
+			flex-grow: 1;
+			justify-content: flex-start;
 			});
+		.xs-block({
+			order: 0;
+			justify-content: flex-end;
+
+			margin-bottom: 20px;
+			margin-right: 10px;
+			});
+	}
+
+	&--show {
+		border: none;
+		padding: 0;
+		font-size: 0;
+
+		position: relative;
+
+		display: inline-block;
+		width: 28px;
+		height: 28px;
+		margin-right: 10px;
+
+		background: url(../../img/search.png) center no-repeat;
+		background-size: cover;
+
+		&::after {
+			content: "поиск";
+
+			position: absolute;
+			top: 0;
+			left: 27px;
+
+			font-size: 14px;
+			font-family: 'CenturyGothic', sans-serif;
+			color: @header-color;
+			display: none;
+
+			.sm-block({
+				display: inline-block;
+				});
+			.xs-block({
+				display: none;
+				})
+		}
+		
 		.md-block({
-			width: 100px
+			margin-right: 0;
 			});
 		.sm-block({
-			width: 200px;
-			margin-left: auto;
-			order: 1;
+			width: 20px;
+			height: 20px;
+			});
+		.xs-block({
+			width: 28px;
+			height: 28px;
+
+			transform: rotate(-90deg);
+			});
+
+	}
+
+	&--input {
+		border: none;
+		padding: 0;
+		
+		box-sizing: border-box;
+		min-width: 400px;
+		padding: 10px 15px;
+
+		font-size: 20px;
+
+		background-color: rgba(255, 255, 255, 0.25);
+		color: #92d5bc;
+
+		.lg-block({
+			min-width: 300px;
+			padding: 8px 10px;
+
+			font-size: 17px;
+
+			});
+		@media screen and (max-width: 1075px) {
+			min-width: 260px;
+			font-size: 16px;
+		}
+		.md-block({
 			display: none;
 			});
+
+	
 	}
 }

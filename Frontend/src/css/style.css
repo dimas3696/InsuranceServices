@@ -169,15 +169,48 @@ button {
 .main-header--logo {
   box-sizing: border-box;
   word-wrap: break-word;
+  margin-left: 5px;
+  margin-right: 5px;
   width: 450px;
-  height: auto;
-  margin: auto 5px
+  height: auto
 }
 .main-header--search {
-  width: 450px;
-  height: 50px;
-  background-color: #fff;
-  opacity: .2
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.main-header--show {
+  border: none;
+  padding: 0;
+  font-size: 0;
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  background: url(../../img/search.png) center/cover no-repeat
+}
+.main-header--show::after {
+  content: "поиск";
+  position: absolute;
+  top: 0;
+  left: 27px;
+  font-size: 14px;
+  font-family: CenturyGothic,sans-serif;
+  color: #92d5bc;
+  display: none
+}
+.main-header--input {
+  border: none;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  min-width: 400px;
+  font-size: 20px;
+  background-color: rgba(255,255,255,.25);
+  color: #92d5bc
 }
 .contacts--item {
   margin-bottom: 6px
@@ -522,8 +555,10 @@ button {
   .main-header--logo {
     width: 350px
   }
-  .main-header--search {
-    width: 300px
+  .main-header--input {
+    min-width: 300px;
+    padding: 8px 10px;
+    font-size: 17px
   }
   .contacts--link__e-mail::before {
     width: 18px;
@@ -602,13 +637,22 @@ button {
     font-size: 26px
   }
 }
+@media screen and (max-width:1075px) {
+  .main-header--input {
+    min-width: 260px;
+    font-size: 16px
+  }
+}
 @media screen and (max-width:980px) {
   .container {
     padding-left: 5px;
     padding-right: 5px
   }
-  .main-header--search {
-    width: 100px
+  .main-header--show {
+    margin-right: 0
+  }
+  .main-header--input {
+    display: none
   }
   .contacts--item,
   .contacts--item:last-child {
@@ -677,12 +721,22 @@ button {
     margin: 0 auto 20px
   }
   .main-header--search {
-    width: 200px;
-    margin-left: auto;
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
     order: 1;
-    display: none
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start
+  }
+  .main-header--show::after {
+    display: inline-block
+  }
+  .main-header--show {
+    width: 20px;
+    height: 20px
   }
   .contacts--list {
     width: calc(83.33333333333334% - 10px);
@@ -690,11 +744,11 @@ button {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: distribute;
-    justify-content: space-around
+    justify-content: space-around;
+    margin-right: 10px
   }
-  .contacts--item,
-  .contacts--item:last-child {
-    margin-bottom: 10px
+  .contacts--link {
+    display: block
   }
   .sm-hidden {
     display: none
@@ -766,13 +820,31 @@ button {
     font-size: 12px
   }
   .main-header--wrap {
-    display: block;
     padding: 5px 0
   }
   .main-header--logo {
     width: calc(75% - 10px);
-    margin-right: auto;
-    margin-left: 5px
+    margin-left: 10px
+  }
+  .main-header--search {
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-right: 10px
+  }
+  .main-header--show::after {
+    display: none
+  }
+  .main-header--show {
+    width: 28px;
+    height: 28px;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg)
   }
   .contacts--list {
     width: calc(100% - 10px)
@@ -843,10 +915,25 @@ button {
     height: 100%
   }
 }
-@media screen and (max-width:350px) {
+@media screen and (max-width:380px) {
   .main-header {
     font-size: 10px
   }
+  .contacts--link__e-mail::before {
+    width: 15px;
+    height: 11px
+  }
+  .contacts--link__phone::before {
+    width: 11px;
+    height: 12px
+  }
+  .contacts--link__location::before {
+    width: 11px;
+    height: 15px;
+    left: -14px
+  }
+}
+@media screen and (max-width:350px) {
   .discounts--img {
     min-width: 150%;
     height: 100%
