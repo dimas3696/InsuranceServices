@@ -144,7 +144,7 @@
  		display: flex;
  		justify-content: space-between;
 
- 		width: 70px;
+ 		width: 80px;
  		margin-bottom: 10px;
  	}
 
@@ -153,11 +153,33 @@
  		border: none;
  		padding: 0;
 
- 		width: 15px;
- 		height: 15px;
+ 		width: 18px;
+ 		height: 18px;
 
  		background-color: transparent;
  		border: 2px solid #8BBEAD;
  		border-radius: 50%;
+
+ 		&:hover,
+ 		&:focus {
+ 			transform: scale(1.1);
+ 			transition: transform 0.15s;
+ 		}
+
+ 		&__active {
+ 			position: relative;
+			
+ 			background: radial-gradient(#8BBEAD 55%, transparent 45%);
+			
+ 			&::before {
+ 				content: '';
+ 				position: absolute;
+ 				top: 50%;
+ 				left: 0;
+ 				transform: translateY(-50%);
+ 				width: 100%;
+ 				height: 2px;
+ 			}
+ 		}
  	}
  } 

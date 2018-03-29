@@ -326,17 +326,43 @@ button {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  width: 70px;
+  width: 80px;
   margin-bottom: 10px
 }
 .discounts--check {
   font-size: 0;
   border: 2px solid #8bbead;
   padding: 0;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   background-color: transparent;
   border-radius: 50%
+}
+.discounts--check:focus,
+.discounts--check:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: -webkit-transform .15s;
+  transition: -webkit-transform .15s;
+  transition: transform .15s;
+  transition: transform .15s,-webkit-transform .15s
+}
+.discounts--check__active {
+  position: relative;
+  background: -webkit-radial-gradient(#8bbead 55%,transparent 45%);
+  background: radial-gradient(#8bbead 55%,transparent 45%)
+}
+.discounts--check__active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px
 }
 .services--list {
   margin-left: -5px;
@@ -507,6 +533,13 @@ button {
 .faq--link {
   color: #446822
 }
+.faq--link:focus,
+.faq--link:hover {
+  color: #75bc32;
+  text-decoration: underline;
+  -webkit-transition: color .2s;
+  transition: color .2s
+}
 .faq--text {
   display: inline-block
 }
@@ -534,6 +567,12 @@ button {
   color: #35521a;
   border-bottom: 1px solid #35521a
 }
+.main-footer--link:focus,
+.main-footer--link:hover {
+  color: #75bc32;
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out
+}
 .main-footer--asks {
   -webkit-box-ordinal-group: 3;
   -ms-flex-order: 2;
@@ -550,11 +589,6 @@ button {
 }
 .main-footer--address {
   text-align: right
-}
-.test {
-  padding: 20px;
-  margin: 0 auto;
-  text-align: center
 }
 @media screen and (max-width:1400px) {
   .main-header {

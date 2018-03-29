@@ -53,6 +53,12 @@
   &--link {
     color: #35521a;
     border-bottom: 1px solid #35521a;
+
+    &:hover,
+    &:focus {
+      color: @accent-text-active;
+      transition: color 0.2s ease-in-out;
+    }
   }
 
   &--asks {
