@@ -1,21 +1,54 @@
-var colorThief = new ColorThief();
-var img = document.querySelector(".discounts--img");
-var color = colorThief.getPalette(img, 8, 1);
-var contrast1 = [];
+$(function() {
 
-console.log(color);
+	
+	var img = document.querySelector(".discounts--item__active .discounts--img");
+
+	if(img.complete) {  //Script starts working only, when necessary image is loaded
+		changeCol(img);
+	};
+
+});
 
 
-$(".services--item").css("background-color", "rgb(" + color[0][0] + "," + color[0][1] + "," + color[0][2] + ")");
-$(".services--header").css("background-color", "rgb(" + color[0][0] + "," + color[0][1] + "," + color[0][2] + ")");
+
+function changeCol(img) {
+
+/*	var defaults = {
+		Paint1Col : [".services--item", ".services--header"], // Elements, wich will be painted with 1st color 
+		Paint1ColText : [".services--header",".service--price",".service--about"], // For texts inside elements with 1st color
+		Paint2Col : [".services--item",".services--header"], // Elements, wich will be painted with 2nd color 
+		Paint2ColText : [".services--header",".service--price",".service--about"], // For texts inside elements with 2nd color
+	};*/
+
+	var colorThief = new ColorThief();
+	var color = colorThief.getPalette(img, 2, 1);
+	var contrast1 = [];
+
+	paint(".services--item", 1);
+	paint(".services--header", 1);
+	paint(".services--wrap", 2);
+	paint(".service--header", 2);
+
+	textColor(".services--header", 1);
+	textColor(".service--price", 1);
+	textColor(".service--about", 1);
+	textColor(".service--header", 2);
 
 
-$(".services--header").css("color", "rgb(" + ((color[0][0]+128)%256) + "," + ((color[0][1]+128)%256) + "," + ((color[0][2]+128)%256) + ")");
-$(".service--price").css("color", "rgb(" + ((color[0][0]+128)%256) + "," + ((color[0][1]+128)%256) + "," + ((color[0][2]+128)%256) + ")");
-$(".service--about").css("color", "rgb(" + ((color[0][0]+128)%256) + "," + ((color[0][1]+128)%256) + "," + ((color[0][2]+128)%256) + ")");
+	function paint(selector, colorNumber) {
+		$(selector).css("background-color", "rgb(" + color[colorNumber-1][0] + "," + color[colorNumber-1][1] + "," + color[colorNumber-1][2] + ")");
+	}
 
-$(".service--header").css("background-color", "rgb(" + color[1][0] + "," + color[1][1] + "," + color[1][2] + ")");
-$(".services--wrap").css("background-color", "rgb(" + color[1][0] + "," + color[1][1] + "," + color[1][2] + ")");
+	function textColor(selector, colorNumber) {
+		if(((color[colorNumber-1][0]*0.3)+(color[colorNumber-1][1]*0.59)+(color[colorNumber-1][2]*0.11)+1.0) < 128.0) {
+			$(selector).css("color", "rgba(255, 255, 255, 0.7)");
+		}
+		else {
+			$(selector).css("color", "rgba(0, 0, 0, 0.85)" );
+		}
+	}
+};
+
 
 
 

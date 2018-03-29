@@ -393,7 +393,7 @@ button {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: 100;
+  z-index: 2;
   opacity: .5
 }
 .services--bg__left {
@@ -409,6 +409,12 @@ button {
   padding-top: 35px;
   padding-bottom: 85px;
   background-color: #588b52
+}
+.services a,
+.services b,
+.services button,
+.services p {
+  z-index: 3
 }
 .service--list {
   display: -webkit-box;
