@@ -1,11 +1,12 @@
 $(function() {
 
-	
 	var img = document.querySelector(".discounts--item__active .discounts--img");
 
 	if(img.complete) {  //Script starts working only, when necessary image is loaded
 		changeCol(img);
 	};
+
+	equalsHeight(".service--item");
 
 });
 
@@ -48,6 +49,23 @@ function changeCol(img) {
 		}
 	}
 };
+
+function equalsHeight (selector) {
+	var selector = $(selector);
+	var max = 0;
+	selector.each(function () {
+		var h = $(this).outerHeight();
+		
+		if(h > max) {
+			max = h;
+		}
+	});
+
+	$(selector).css("min-height", max);
+};
+
+
+
 
 
 

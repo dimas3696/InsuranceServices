@@ -13,7 +13,10 @@ const config = {
 		src: '/precss/style.less',
 		dest: '/css'
 	},
-	html: '/*.html'
+	html: '/*.html',
+	js: {
+		src: '/js/*.js'
+	}
 };
 
 gulp.task('style', function() {
@@ -52,6 +55,7 @@ gulp.task('serve', function() {
 
 	gulp.watch(config.src + config.css.watch, ["style"]);
 	gulp.watch(config.src + config.html, server.reload);
+	gulp.watch(config.src + config.js.src, server.reload);
 });
 
 

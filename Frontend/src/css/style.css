@@ -700,6 +700,10 @@ button {
   .contacts--item:last-child {
     margin-bottom: 2px
   }
+  .md-hidden {
+    height: 0;
+    display: none
+  }
   .discounts {
     margin-bottom: 5px
   }
@@ -711,9 +715,6 @@ button {
     font-size: 17px;
     line-height: 1.4;
     background-color: rgba(0,0,0,.6)
-  }
-  .md-hidden {
-    display: none
   }
   .services--item {
     width: 100%;
@@ -793,7 +794,8 @@ button {
     display: block
   }
   .sm-hidden {
-    display: none
+    display: none;
+    height: 0
   }
   .discounts--header {
     margin-left: 50px
@@ -911,6 +913,10 @@ button {
   .contacts--link__location::before {
     left: -16px
   }
+  .xs-hidden {
+    height: 0;
+    display: none
+  }
   .discounts--header {
     margin-top: 10px;
     font-size: 35px
@@ -923,9 +929,6 @@ button {
     font-size: 15px;
     padding: 5px 40px;
     line-height: 1.4
-  }
-  .xs-hidden {
-    display: none
   }
   .services--item__long .service--item {
     width: calc(50% - 10px)
