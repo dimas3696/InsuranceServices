@@ -2,8 +2,8 @@ var smartgrid = require('smart-grid');
  
 var settings = {
     outputStyle: 'less',
-    columns: 24, 
-    offset: '30px',
+    columns: 12, 
+    offset: '10px',
     mobileFirst: false, 
     container: {
         maxWidth: '1200px', /* max-width оn very large screen */
@@ -11,10 +11,10 @@ var settings = {
     },
     breakPoints: {
         lg: {
-            width: '1300px', /* -> @media (max-width: 1100px) */
+            width: '1400px', /* -> @media (max-width: 1100px) */
         },
         md: {
-            width: '960px'
+            width: '980px'
         },
         sm: {
             width: '780px',
@@ -22,7 +22,11 @@ var settings = {
         },
         xs: {
             width: '560px'
+        },
+        xxs: {
+            width: '380px'
         }
+
       
     }
 };

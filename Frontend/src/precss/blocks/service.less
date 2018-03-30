@@ -34,7 +34,7 @@
 
 	&--header {
 		margin-top: -65px;
-		margin-bottom: 5px;
+		margin-bottom: 15px;
 		padding-bottom: 30px;
 
 		font-family: 'Haettenschweiler', sans-serif;
@@ -61,7 +61,6 @@
 
 	&--about {
 		flex-grow: 1;
-
 		margin-bottom: 15px;
 		
 		font-size: 18px;
@@ -73,18 +72,40 @@
 	}
 
 	&--price {
-		margin-bottom: 5px;
+		margin-bottom: 10px;
 
-		font-size: 14px;
+		font-size: 15px;
 		color: #192822;
 		font-weight: bold;
 	}
 
 	&--link {
+		align-self: center;
 		margin-bottom: 10px;
+		padding: 5px 10px;
+
+		background-color: #838181;
+		border: 2px solid #707070;
+		border-radius: 8px;
+		color: rgba(255,255,255, 0.7);
 
     .lg-block({
       font-size: 17px;
       });
+
+    &:hover,
+    &:active {
+    	background-color: #9d9b9b;
+    	border: 2px solid #5d5d5d;
+
+    	transition: all 0.2s;
+    }
+
+    &:active {
+    	background-color: #4d4b4b;
+    	border: 2px solid #353535;
+
+    	transition: all 0.2s;
+    }
 	}
 }

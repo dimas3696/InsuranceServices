@@ -470,7 +470,7 @@ button {
 }
 .service--header {
   margin-top: -65px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   padding-bottom: 30px;
   font-family: Haettenschweiler,sans-serif;
   font-size: 32px;
@@ -486,13 +486,33 @@ button {
   color: #394d44
 }
 .service--price {
-  margin-bottom: 5px;
-  font-size: 14px;
+  margin-bottom: 10px;
+  font-size: 15px;
   color: #192822;
   font-weight: 700
 }
 .service--link {
-  margin-bottom: 10px
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #838181;
+  border: 2px solid #707070;
+  border-radius: 8px;
+  color: rgba(255,255,255,.7)
+}
+.service--link:active,
+.service--link:hover {
+  background-color: #9d9b9b;
+  border: 2px solid #5d5d5d;
+  -webkit-transition: all .2s;
+  transition: all .2s
+}
+.service--link:active {
+  background-color: #4d4b4b;
+  border: 2px solid #353535;
+  -webkit-transition: all .2s;
+  transition: all .2s
 }
 .about-us--wrap {
   padding: 1px 1px 200px;
@@ -540,6 +560,9 @@ button {
   -webkit-transition: color .2s;
   transition: color .2s
 }
+.faq--link:active {
+  color: #436b1d
+}
 .faq--text {
   display: inline-block
 }
@@ -572,6 +595,9 @@ button {
   color: #75bc32;
   -webkit-transition: color .2s ease-in-out;
   transition: color .2s ease-in-out
+}
+.main-footer--link:active {
+  color: #436b1d
 }
 .main-footer--asks {
   -webkit-box-ordinal-group: 3;
@@ -686,10 +712,6 @@ button {
   }
 }
 @media screen and (max-width:980px) {
-  .container {
-    padding-left: 5px;
-    padding-right: 5px
-  }
   .main-header--show {
     margin-right: 0
   }
@@ -961,9 +983,6 @@ button {
   }
 }
 @media screen and (max-width:380px) {
-  .main-header {
-    font-size: 10px
-  }
   .contacts--link__e-mail::before {
     width: 15px;
     height: 11px
@@ -976,6 +995,11 @@ button {
     width: 11px;
     height: 15px;
     left: -14px
+  }
+}
+@media screen and (max-width:355px) {
+  .main-header {
+    font-size: 10px
   }
 }
 @media screen and (max-width:350px) {
