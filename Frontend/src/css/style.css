@@ -256,14 +256,23 @@ button {
 .discounts--wrap {
   position: relative
 }
-.discounts--item {
-  margin: 0 auto;
-  display: none;
+.discounts--list {
   position: relative;
   overflow: hidden
 }
+.discounts--item {
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-height: 100%;
+  overflow: hidden
+}
 .discounts--item__active {
-  display: block
+  position: relative;
+  left: 0;
+  top: 0
 }
 .discounts--header {
   font-size: 50px;
@@ -308,7 +317,7 @@ button {
   height: 52px;
   background: url(../img/arrow.png) center no-repeat
 }
-.discounts--btn__prev {
+.discounts--btn__next {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg)

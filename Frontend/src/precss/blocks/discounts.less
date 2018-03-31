@@ -30,18 +30,24 @@
  	}
 
  	&--list {
+ 		position: relative;
+ 		overflow: hidden;
  	}
  	
  	&--item {
+ 		width: 100%;
  		margin: 0 auto;
-
- 		display: none;
- 		position: relative;
+ 		position: absolute;
+ 		top: 0;
+ 		left: 100%;
+ 		min-height: 100%;
 
  		overflow: hidden;
 
  		&__active{
- 			display: block;
+ 			position: relative;
+ 			left: 0;
+ 			top: 0;
  		}
  	}
 
@@ -138,7 +144,7 @@
 
  		background: url(../img/arrow.png) center no-repeat;
 
- 		&__prev {
+ 		&__next {
  			transform: rotate(180deg);
  		}
  	} 
