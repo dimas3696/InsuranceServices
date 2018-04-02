@@ -253,9 +253,12 @@ button {
   position: relative;
   margin-bottom: 10px
 }
-.discounts--list,
 .discounts--wrap {
   position: relative
+}
+.discounts--list {
+  position: relative;
+  overflow: hidden
 }
 .discounts--item {
   width: 100%;
@@ -320,6 +323,7 @@ button {
   transform: rotate(180deg)
 }
 .discounts--checks {
+  width: 100%;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -329,16 +333,16 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 80px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-bottom: 10px
 }
 .discounts--check {
   font-size: 0;
   border: 2px solid #8bbead;
   padding: 0;
+  margin: 0 4px;
   width: 18px;
   height: 18px;
   background-color: transparent;
@@ -498,6 +502,7 @@ button {
   font-weight: 700
 }
 .service--link {
+  position: relative;
   -ms-flex-item-align: center;
   align-self: center;
   margin-bottom: 10px;
@@ -506,6 +511,21 @@ button {
   border: 2px solid #707070;
   border-radius: 8px;
   color: rgba(255,255,255,.7)
+}
+.service--link::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: url(../../img/btn-bg1.png) center/contain no-repeat;
+  z-index: -1;
+  opacity: .2
 }
 .service--link:active,
 .service--link:hover {
@@ -621,6 +641,11 @@ button {
 }
 .main-footer--address {
   text-align: right
+}
+.test {
+  display: inline-block;
+  width: 200px;
+  height: 200px
 }
 @media screen and (max-width:1400px) {
   .main-header {

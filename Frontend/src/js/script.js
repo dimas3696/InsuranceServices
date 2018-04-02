@@ -33,15 +33,15 @@ $(function() {
 	check.on("click", function() {
 		var index = $(this).index();
 		$("[data-active]").css({
-		"left" : "auto", 
-		"right" : "0"
-	}).animate({
-		right : "-100%"
-	}, 1000).removeAttr("data-active");
+			"left" : "auto", 
+			"right" : "0"
+		}).animate({
+			right : "-100%"
+		}, 1000).removeAttr("data-active");
 
-	slide.eq(index).animate({
-		right : "0"
-	}, 1000).attr("data-active");
+		slide.eq(index).animate({
+			right : "0"
+		}, 1000).attr("data-active");
 
 	});
 
@@ -51,6 +51,10 @@ $(function() {
 	paint(".services--header", 1);
 	paint(".services--wrap", 2);
 	paint(".service--header", 2);
+
+	paint(".test1", 1);
+	paint(".test2", 2);
+	paint(".test3", 3);
 
 	textColor(".services--header", 1);
 	textColor(".service--price", 1);

@@ -31,6 +31,7 @@
 
  	&--list {
  		position: relative;
+ 		overflow: hidden;
  	}
  	
  	&--item {
@@ -149,15 +150,15 @@
  	} 
 
  	&--checks {
+ 		width: 100%;
  		position: absolute;
  		bottom: 0;
  		left: 50%;
  		transform: translate(-50%);
 
  		display: flex;
- 		justify-content: space-between;
+ 		justify-content: center;
 
- 		width: 80px;
  		margin-bottom: 10px;
  	}
 
@@ -165,6 +166,7 @@
  		font-size: 0;
  		border: none;
  		padding: 0;
+ 		margin: 0 4px;
 
  		width: 18px;
  		height: 18px;
