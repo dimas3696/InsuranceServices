@@ -253,12 +253,9 @@ button {
   position: relative;
   margin-bottom: 10px
 }
+.discounts--list,
 .discounts--wrap {
   position: relative
-}
-.discounts--list {
-  position: relative;
-  overflow: hidden
 }
 .discounts--item {
   width: 100%;
