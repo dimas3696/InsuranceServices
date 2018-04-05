@@ -28,6 +28,7 @@
 			});
 		.xs-block({
 			padding: 5px 0;
+			align-items: stretch;
 			});
 	}
 
@@ -47,22 +48,30 @@
 			});
 		.xs-block({
 			margin-left: 10px;
+			flex-grow: 1;
+			align-self: flex-end;
 			});
 	}
 
 	&--search {
 		display: flex;
 		align-items: center;
+		order: 1;
 
-		.sm-block({
-			order: 1;
+		.md-block({
 			flex-grow: 1;
 			justify-content: flex-start;
+			margin-left: 20px;
+			});
+		.sm-block({
+			order: 4;
+			flex-grow: 1;
+			justify-content: flex-start;
+			margin-left: 0;
 			});
 		.xs-block({
 			order: 0;
 			justify-content: flex-end;
-
 			margin-bottom: 20px;
 			margin-right: 10px;
 			});
@@ -137,7 +146,6 @@
 			padding: 8px 10px;
 
 			font-size: 17px;
-
 			});
 		@media screen and (max-width: 1075px) {
 			min-width: 260px;
@@ -146,7 +154,73 @@
 		.md-block({
 			display: none;
 			});
+	}
 
-	
+	&--langs {
+		order: 2;
+		display: flex;
+		flex-direction: column;
+		.md-block({
+			flex-grow: 1;
+			align-items: flex-end;
+			margin-right: 30px;
+			});
+		.sm-block({
+			flex-grow: 0;
+			margin-bottom: auto;
+			});
+		.xs-block({
+			margin-right: 10px;
+			});
+	}
+
+	&--lang {
+		appearance: none;
+		cursor: pointer;
+
+		width: 21px;
+		height: 13px;
+		margin-bottom: 5px;
+		margin-top: 5px;
+
+		background: url(../../img/lang-rus.png) center no-repeat;
+		background-size: cover;
+		border: none;
+		border-radius: 0;
+
+		.md-block({
+			width: 28px;
+			height: 17px;
+			margin-bottom: 3px;
+			margin-top: 3px;
+			});
+		.sm-block({
+			width: 45px;
+			height: 27px;
+			});
+		.xs-block({
+			width: 21px;
+			height: 13px;
+			});
+
+
+		&:hover {
+			outline: 1px solid #71adab;
+		}
+	}
+
+	&__ukr {
+		background-image: url(../../img/lang-ukr.png);
+	}
+
+	&__active-lang {
+		.sm-block({
+			display: none;
+			});
+	}
+
+
+	&--lang-lab {
+		font-size: 0;
 	}
 }
