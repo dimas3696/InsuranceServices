@@ -241,7 +241,9 @@ button {
   border-radius: 0
 }
 .main-header--lang:hover {
-  outline: #71adab solid 1px
+  outline: #71adab solid 1px;
+  -webkit-transition: all .1s;
+  transition: all .1s
 }
 .main-header__ukr {
   background-image: url(../../img/lang-ukr.png)
@@ -429,14 +431,23 @@ button {
   justify-content: space-between
 }
 .services--item {
-  position: relative;
   width: calc(50% - 10px);
   box-sizing: border-box;
   word-wrap: break-word;
   margin-left: 5px;
   margin-right: 5px;
+  position: relative;
   margin-bottom: 10px;
   background-color: #99ce94
+}
+.services--item__left::after {
+  background-image: url(../img/services-left-bg.png)
+}
+.services--item__right::after {
+  background-image: url(../img/services-right-bg.png)
+}
+.services--item__long::after {
+  background-image: url(../img/services-long-bg.png)
 }
 .services--item__long {
   width: 100%
@@ -498,13 +509,17 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-  justify-content: space-around
+  overflow-x: auto
+}
+.service--list::-webkit-scrollbar {
+  height: 13px;
+  background: url(../../img/scroll-bg.jpg) #272727
+}
+.service--list::-webkit-scrollbar-thumb {
+  background: url(../../img/scroll-thumb.jpg) #838383
 }
 .service--item {
-  width: 30%;
+  min-width: 33%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -514,10 +529,10 @@ button {
   flex-direction: column;
   text-align: center
 }
-.service--item:first-child {
+.service--item::first-child {
   margin-left: 20px
 }
-.service--item:last-child {
+.service--item::last-child {
   margin-right: 20px
 }
 .service--header {
@@ -547,7 +562,7 @@ button {
   position: relative;
   -ms-flex-item-align: center;
   align-self: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding: 5px 10px;
   background-color: #838181;
   border: 2px solid #707070;
@@ -581,6 +596,57 @@ button {
   border: 2px solid #353535;
   -webkit-transition: all .2s;
   transition: all .2s
+}
+.partners {
+  color: #a6a6a6
+}
+.partners--wrap {
+  background: url(../../img/partners-bg.jpg) center/cover no-repeat
+}
+.partners--header {
+  display: inline-block;
+  margin-top: 40px;
+  margin-bottom: 65px;
+  margin-left: 30px;
+  font-size: 48px;
+  font-family: CenturyGothic,sans-serif;
+  text-shadow: -3px -1px 1px #292929;
+  border-bottom: 3px solid #292929
+}
+.partners--list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto
+}
+.partners--item {
+  box-sizing: border-box;
+  word-wrap: break-word;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: calc(20% - 10px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 65px
+}
+.partners--link:hover {
+  -webkit-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  transform: scale(1.25);
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: -webkit-transform .25s ease-in-out;
+  transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
 }
 .about-us--wrap {
   padding: 1px 1px 200px;
@@ -737,10 +803,10 @@ button {
     padding-top: 25px;
     padding-bottom: 60px
   }
-  .service--item:first-child {
+  .service--item::first-child {
     margin-left: 0
   }
-  .service--item:last-child {
+  .service--item::last-child {
     margin-right: 0
   }
   .service--header {
@@ -751,6 +817,12 @@ button {
   .service--about,
   .service--link {
     font-size: 17px
+  }
+  .partners--header {
+    font-size: 40px
+  }
+  .partners--list {
+    width: 85%
   }
   .about-us--wrap {
     padding-bottom: 140px
@@ -846,6 +918,12 @@ button {
   }
   .service--header {
     font-size: 28px
+  }
+  .partners--header {
+    margin-left: 0
+  }
+  .partners--list {
+    width: 100%
   }
   .about-us--header {
     margin-left: 35%
@@ -946,6 +1024,12 @@ button {
   .service--header {
     font-size: 22px
   }
+  .partners {
+    text-align: center
+  }
+  .partners--item {
+    width: calc(25% - 10px)
+  }
   .about-us--wrap {
     padding-bottom: 120px
   }
@@ -999,18 +1083,15 @@ button {
   }
   .main-header--wrap {
     padding: 5px 0;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
   }
   .main-header--logo {
-    width: calc(75% - 10px);
     margin-left: 10px;
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
-    flex-grow: 1;
-    -ms-flex-item-align: end;
-    align-self: flex-end
+    flex-grow: 1
   }
   .main-header--search {
     -webkit-box-ordinal-group: 1;
@@ -1033,11 +1114,12 @@ button {
     transform: rotate(-90deg)
   }
   .main-header--langs {
-    margin-right: 10px
+    margin-right: 10px;
+    margin-bottom: 20px
   }
   .main-header--lang {
-    width: 21px;
-    height: 13px
+    width: 25px;
+    height: 15px
   }
   .contacts--list {
     width: calc(100% - 10px)
@@ -1091,6 +1173,15 @@ button {
   .service--header {
     font-size: 25px
   }
+  .partners--header {
+    margin-top: 15px;
+    margin-bottom: 50px;
+    font-size: 35px
+  }
+  .partners--item {
+    width: calc(33.333333333333336% - 10px);
+    margin-bottom: 50px
+  }
   .about-us--wrap {
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px
@@ -1110,6 +1201,14 @@ button {
   }
 }
 @media screen and (max-width:380px) {
+  .main-header--show {
+    width: 20px;
+    height: 20px
+  }
+  .main-header--lang {
+    width: 20px;
+    height: 12px
+  }
   .contacts--link__e-mail::before {
     width: 15px;
     height: 11px
@@ -1122,6 +1221,12 @@ button {
     width: 11px;
     height: 15px;
     left: -14px
+  }
+  .partners--header {
+    font-size: 30px
+  }
+  .partners--item {
+    width: calc(50% - 10px)
   }
 }
 @media screen and (max-width:355px) {

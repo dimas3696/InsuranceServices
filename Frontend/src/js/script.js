@@ -45,6 +45,8 @@ $(function() {
 
 	});
 
+	cancelDrag($("a"))
+
 	function changeCol(slideEq) { // Принимает порядковый номер картинки в массиве слайдов и меняет цвета в секции "Страховки"
 
 	paint(".services--item", 1);
@@ -73,6 +75,7 @@ $(function() {
 			$(selector).css("color", "rgba(0, 0, 0, 0.85)" );
 		}
 	} 
+
 };
 
 var currentSlide = 1;	
@@ -166,3 +169,8 @@ function equalsHeight (selector) { // Выравнивает ширины все
 	$(selector).css("min-height", max);
 };
 
+function cancelDrag (selector) {
+	$(selector).on("dragstart", function(e) {
+		e.preventDefault();
+	});
+};

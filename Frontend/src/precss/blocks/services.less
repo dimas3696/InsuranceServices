@@ -13,22 +13,22 @@
 .services {
 	&--list {
     .row-flex();
-		display: flex;
+    display: flex;
     flex-wrap: wrap;
-		justify-content: space-between;
+    justify-content: space-between;
 
     .sm-block({
       margin-left: 0;
       margin-right: 0;
       });
-	}
+  }
 
-	&--item {
-		position: relative;
+  &--item {
     .size(6);
     .col();
-
+    position: relative;
     margin-bottom: 10px;
+
     background-color: #99ce94;
 
     .md-block({
@@ -40,6 +40,42 @@
       margin-right: 0;
       margin-bottom: 5px;
       });
+
+/*     &::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: 2;
+  opacity: 0.5;
+  
+}; */
+
+    &__left {
+      &::after {
+        background-image: url(../img/services-left-bg.png);
+      }
+    }
+
+    &__right {
+     &::after {
+        background-image: url(../img/services-right-bg.png);
+      }
+    }
+
+    &__long {
+      &::after {
+        background-image: url(../img/services-long-bg.png);
+      }
+    }
 
     &__long {
      width: 100%;
@@ -89,48 +125,48 @@
 
 /* &--insure {
   color: #192822;
-} */
+  } */
 
-&--bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+  &--bg {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-  z-index: 2;
-  opacity: 0.5;
+    z-index: 2;
+    opacity: 0.5;
 
-  &__left {
-    background-image: url(../img/services-left-bg.png);
+    &__left {
+      background-image: url(../img/services-left-bg.png);
+    }
+
+    &__right {
+      background-image: url(../img/services-right-bg.png);
+    }
+
+    &__long {
+      background-image: url(../img/services-long-bg.png);
+    }
   }
 
-  &__right {
-    background-image: url(../img/services-right-bg.png);
+  &--wrap {
+    padding-top: 35px;
+    padding-bottom: 85px;
+
+    background-color: #588b52;
+
+    .lg-block({
+      padding-top: 25px;
+      padding-bottom: 60px;
+      });
+
   }
-
-  &__long {
-    background-image: url(../img/services-long-bg.png);
-  }
-}
-
-&--wrap {
-  padding-top: 35px;
-  padding-bottom: 85px;
-
-  background-color: #588b52;
-
-  .lg-block({
-    padding-top: 25px;
-    padding-bottom: 60px;
-    });
-
-}
 }
 
 .services p, 
