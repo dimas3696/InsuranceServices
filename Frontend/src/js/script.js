@@ -52,7 +52,6 @@ $(function() {
 	paint(".services--item", 1);
 	paint(".services--header", 1);
 	paint(".services--wrap", 2);
-	paint(".service--header", 2);
 
 	paint(".test1", 1);
 	paint(".test2", 2);

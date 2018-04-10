@@ -431,79 +431,74 @@ button {
   justify-content: space-between
 }
 .services--item {
-  width: calc(50% - 10px);
   box-sizing: border-box;
   word-wrap: break-word;
   margin-left: 5px;
   margin-right: 5px;
+  width: calc(50% - 10px);
   position: relative;
   margin-bottom: 10px;
-  background-color: #99ce94
+  background-color: #99ce94;
+  background-repeat: no-repeat;
+  background-size: cover
 }
-.services--item__left::after {
+.services--item__left {
   background-image: url(../img/services-left-bg.png)
 }
-.services--item__right::after {
+.services--item__right {
   background-image: url(../img/services-right-bg.png)
 }
-.services--item__long::after {
-  background-image: url(../img/services-long-bg.png)
-}
 .services--item__long {
-  width: 100%
+  background-image: url(../img/services-long-bg.png);
+  width: calc(100% - 10px)
 }
 .services--item__long .service--item {
-  width: calc(16.666666666666668% - 10px)
+  max-width: 16.6%;
+  min-width: 16.6%
 }
 .services--header {
   font-size: 27px;
   color: #394d44;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #99ce94
 }
 .services--header__left {
+  background-image: url(../img/services-left-bg.png);
   margin-right: 20px;
   padding-right: 5px;
   text-align: right
 }
 .services--header__right {
+  background-image: url(../img/services-right-bg.png);
   margin-left: 20px;
   padding-left: 5px;
   text-align: left
 }
 .services--header__long {
+  background-image: url(../img/services-long-bg.png);
   text-align: center
 }
-.services--bg {
+.services--wrap {
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 2;
-  opacity: .5
-}
-.services--bg__left {
-  background-image: url(../img/services-left-bg.png)
-}
-.services--bg__right {
-  background-image: url(../img/services-right-bg.png)
-}
-.services--bg__long {
-  background-image: url(../img/services-long-bg.png)
-}
-.services--wrap {
   padding-top: 35px;
   padding-bottom: 85px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
   background-color: #588b52
 }
-.services a,
-.services b,
-.services button,
-.services p {
-  z-index: 3
+.services--wrap__left {
+  background-image: url(../img/services-left-bg.png)
+}
+.services--wrap__right {
+  background-image: url(../img/services-right-bg.png)
+}
+.services--wrap__long {
+  background-image: url(../img/services-long-bg.png)
 }
 .service--list {
   display: -webkit-box;
@@ -519,7 +514,10 @@ button {
   background: url(../../img/scroll-thumb.jpg) #838383
 }
 .service--item {
-  min-width: 33%;
+  min-width: 33.3%;
+  max-width: 33.3%;
+  padding: 0 5px;
+  box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -529,20 +527,14 @@ button {
   flex-direction: column;
   text-align: center
 }
-.service--item::first-child {
-  margin-left: 20px
-}
-.service--item::last-child {
-  margin-right: 20px
-}
 .service--header {
-  margin-top: -65px;
+  margin-top: 85px;
   margin-bottom: 15px;
   padding-bottom: 30px;
   font-family: Haettenschweiler,sans-serif;
   font-size: 32px;
   color: #192822;
-  background-color: #588b52
+  z-index: 3
 }
 .service--about {
   -webkit-box-flex: 1;
@@ -568,21 +560,6 @@ button {
   border: 2px solid #707070;
   border-radius: 8px;
   color: rgba(255,255,255,.7)
-}
-.service--link::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-  z-index: -1;
-  opacity: .2
 }
 .service--link:active,
 .service--link:hover {
@@ -803,14 +780,8 @@ button {
     padding-top: 25px;
     padding-bottom: 60px
   }
-  .service--item::first-child {
-    margin-left: 0
-  }
-  .service--item::last-child {
-    margin-right: 0
-  }
   .service--header {
-    margin-top: -45px;
+    margin-top: 80px;
     padding-bottom: 15px;
     font-size: 24px
   }
@@ -893,8 +864,8 @@ button {
     margin-bottom: 2px
   }
   .md-hidden {
-    height: 0;
-    display: none
+    display: none;
+    height: 0
   }
   .discounts {
     margin-bottom: 5px
@@ -910,11 +881,13 @@ button {
   }
   .services--item {
     width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 7px
   }
-  .service--item,
   .services--item__long .service--item {
-    width: calc(25% - 10px)
+    min-width: 33.3%;
+    max-width: 33.3%
   }
   .service--header {
     font-size: 28px
@@ -1020,6 +993,11 @@ button {
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 5px
+  }
+  .service--item,
+  .services--item__long .service--item {
+    min-width: 50%;
+    max-width: 50%
   }
   .service--header {
     font-size: 22px
@@ -1145,8 +1123,8 @@ button {
     left: -16px
   }
   .xs-hidden {
-    height: 0;
-    display: none
+    display: none;
+    height: 0
   }
   .discounts--header {
     margin-top: 10px;
@@ -1161,14 +1139,8 @@ button {
     padding: 5px 40px;
     line-height: 1.4
   }
-  .services--item__long .service--item {
-    width: calc(50% - 10px)
-  }
   .services--header {
     font-size: 20px
-  }
-  .service--item {
-    width: calc(50% - 10px)
   }
   .service--header {
     font-size: 25px
