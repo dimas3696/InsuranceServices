@@ -6,8 +6,12 @@ $(function() {
 	var checkEl = $(".discounts--check"); // Изначальные элементы точек слайдера
 	var checks = $(".discounts--checks");
 	var slide = $(".discounts--item");
+	var slideList = $(".discounts--list");
+
 	var checkAmount = slide.length;
 	var imgsColors = [];
+	var break_md = 980;
+
 
 	for (var i = 0; i < imgs.length; i++) {  // Цикл анализирует основные цвета картинок слайдера и записывает их в массив imgsColors
 		setTimeout(imgsColors[i] = rememberCol(imgs[i]), 1);
@@ -16,36 +20,51 @@ $(function() {
 		}
 	};
 
+
 	createChecks(checkEl, checkAmount, checks);
+
 
 	var check = $(".discounts--check"); // Элементы точек слайдера после создания дополнительных 
 
+
 	equalsHeight(".service--item");
+
 	
 	nextBtn.on("click", function() {
 		nextSlide();
 	});
 
+
 	prevBtn.on("click", function() {
 		prevSlide();
 	});
 
+
 	check.on("click", function() {
 		var index = $(this).index();
-		$("[data-active]").css({
-			"left" : "auto", 
-			"right" : "0"
-		}).animate({
-			right : "-100%"
-		}, 1000).removeAttr("data-active");
 
-		slide.eq(index).animate({
-			right : "0"
-		}, 1000).attr("data-active");
+		if (index + 1 != currentSlide) {
+			translateWidth = -slide.eq(currentSlide-1).width() * (index);
+			slideList.css({
+				'transform': 'translate(' + translateWidth + 'px, 0)'
+			});
+			check.eq(currentSlide-1).removeClass("discounts--check__active");
 
+			currentSlide = index + 1;
+			
+			setTimeout(function () {
+				check.eq(currentSlide-1).addClass("discounts--check__active");
+			}, 800);
+			setTimeout(changeCol(currentSlide-1), 1);
+		};
 	});
 
-	cancelDrag($("a"))
+
+	cancelDrag($("a"));
+
+
+	cancelequalsHeight(".service--item", break_md);
+
 
 	function changeCol(slideEq) { // Принимает порядковый номер картинки в массиве слайдов и меняет цвета в секции "Страховки"
 
@@ -77,66 +96,72 @@ $(function() {
 
 };
 
+
 var currentSlide = 1;	
-function nextSlide () {
-	slide.css({
-		"left" : "auto",
-		"right" : "100%"
-	}).eq(currentSlide-1).css({
-		"left" : "auto", 
-		"right" : "0"
-	}).animate({
-		right : "-100%"
-	}, 1000).removeAttr("data-active");
+var slideCount = slide.length;
+var translateWidth = 0;
 
-	check.eq(currentSlide-1).removeClass("discounts--check__active");
+function nextSlide() {
 
-	currentSlide++;
+	if (currentSlide == slideCount || currentSlide <= 0 || currentSlide > slideCount) {
+		slideList.css("transform", "translate(0, 0)");
+		check.eq(currentSlide-1).removeClass("discounts--check__active");
 
-	if (currentSlide > slide.length) {
 		currentSlide = 1;
+		setTimeout(function () {
+			check.eq(currentSlide-1).addClass("discounts--check__active");
+		}, 800);
+		setTimeout(changeCol(currentSlide-1), 1);
+	} 
+	else {
+		translateWidth = -slide.eq(currentSlide-1).width() * (currentSlide);
+		slideList.css({
+			"transform": "translate(" + translateWidth + "px, 0)"
+		});
+		
+		check.eq(currentSlide-1).removeClass("discounts--check__active");
+
+
+		currentSlide++;
+		setTimeout(function () {
+			check.eq(currentSlide-1).addClass("discounts--check__active");
+		}, 800);
+		setTimeout(changeCol(currentSlide-1), 1);
 	}
+}
 
-	slide.eq(currentSlide-1).animate({
-		right : "0"
-	}, 1000).attr("data-active");
+function prevSlide() {
+	if (currentSlide == 1 || currentSlide <= 0 || currentSlide > slideCount) {
+		translateWidth = -slide.eq(currentSlide-1).width() * (slideCount - 1);
+		slideList.css({
+			'transform': 'translate(' + translateWidth + 'px, 0)'
+		});
+		check.eq(currentSlide-1).removeClass("discounts--check__active");
 
+		currentSlide = slideCount;
+		setTimeout(function () {
+			check.eq(currentSlide-1).addClass("discounts--check__active");
+		}, 800);
+		setTimeout(changeCol(currentSlide-1), 1);
+	} 
+	else {
+		translateWidth = -slide.eq(currentSlide-1).width() * (currentSlide - 2);
+		slideList.css({
+			'transform': 'translate(' + translateWidth + 'px, 0)'
+		});
+		check.eq(currentSlide-1).removeClass("discounts--check__active");
 
-	check.eq(currentSlide-1).addClass("discounts--check__active");
+		currentSlide--
+		setTimeout(function () {
+			check.eq(currentSlide-1).addClass("discounts--check__active");
+		}, 800);
+		setTimeout(changeCol(currentSlide-1), 1);
 
-	setTimeout(changeCol(currentSlide-1), 1);
-};
-
-function prevSlide () {
-	slide.css({
-		"right" : "auto",
-		"left" : "100%"
-	}).eq(currentSlide-1).css({
-		"right" : "auto", 
-		"left" : "0"
-	}).animate({
-		left : "-100%"
-	}, 1000).removeAttr("data-active");
-
-	check.eq(currentSlide-1).removeClass("discounts--check__active");
-
-	currentSlide--;
-
-	if (currentSlide <= 0) {
-		currentSlide = slide.length;
 	}
-
-	slide.eq(currentSlide-1).animate({
-		left : "0"
-	}, 1000).attr("data-active");
-
-
-	check.eq(currentSlide-1).addClass("discounts--check__active");
-
-	setTimeout(changeCol(currentSlide-1), 1);
-};
+}
 
 });
+
 
 function rememberCol(img) { // Анализирует принятую картинку и возвращает ее основные цвета
 	var colorThief = new ColorThief();
@@ -144,6 +169,7 @@ function rememberCol(img) { // Анализирует принятую карт�
 
 	return color;
 };
+
 
 function createChecks (checkElement, checkAmount, parentElement) { // В зависимости от количества слайдов, создает нужное количество точек для управления слайдами
 	if (checkAmount !== checkElement.length) {
@@ -168,8 +194,19 @@ function equalsHeight (selector) { // Выравнивает ширины все
 	$(selector).css("min-height", max);
 };
 
+
 function cancelDrag (selector) {
 	$(selector).on("dragstart", function(e) {
 		e.preventDefault();
 	});
+};
+
+
+function cancelequalsHeight (selector, windowWidth) {
+	if ($(window).width() <= windowWidth) {
+		$(selector).css("min-height", "auto");
+	}
+
+
+
 };
