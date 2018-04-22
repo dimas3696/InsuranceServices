@@ -311,9 +311,14 @@ button {
   -webkit-transition-timing-function: cubic-bezier(.67,.01,.23,1);
   transition-timing-function: cubic-bezier(.67,.01,.23,1)
 }
+.discounts--wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%
+}
 .discounts--item {
   position: relative;
-  width: calc(16.66666667%);
+  width: calc(17.16666667%);
   list-style: none;
   display: inline;
   float: left
@@ -322,19 +327,23 @@ button {
   font-size: 50px;
   font-weight: 700;
   color: #232e30;
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 350px;
   margin-left: 100px
 }
 .discounts--img {
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1
 }
 .discounts--info {
-  margin-top: 30px;
-  margin-bottom: 50px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   padding: 10px 100px;
   color: #95b1b5;
   background-color: rgba(0,0,0,.5)
@@ -352,6 +361,7 @@ button {
   -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
+  min-height: 100%;
   z-index: 1
 }
 .discounts--btn {
@@ -359,12 +369,13 @@ button {
   border: none;
   padding: 0;
   width: 27px;
-  height: 52px;
+  min-height: 100%;
   background: url(../img/arrow.png) center no-repeat
 }
 .discounts--btn:focus,
 .discounts--btn:hover {
-  outline: 0
+  outline: 0;
+  background-color: rgba(0,0,0,.2)
 }
 .discounts--btn__next {
   -webkit-transform: rotate(180deg);
@@ -446,6 +457,8 @@ button {
   position: relative;
   margin-bottom: 10px;
   background-color: #99ce94;
+  -webkit-transition: background-color 1s ease;
+  transition: background-color 1s ease;
   background-repeat: no-repeat;
   background-size: cover
 }
@@ -469,7 +482,9 @@ button {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #99ce94
+  background-color: #99ce94;
+  -webkit-transition: background-color 1s ease;
+  transition: background-color 1s ease
 }
 .services--header__left {
   background-image: url(../img/services-left-bg.png);
@@ -496,7 +511,9 @@ button {
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  background-color: #588b52
+  background-color: #588b52;
+  -webkit-transition: background-color .8s;
+  transition: background-color .8s
 }
 .services--wrap__left {
   background-image: url(../img/services-left-bg.png)
@@ -729,8 +746,7 @@ button {
   padding-right: 45px;
   font-size: 36px;
   color: #35521a;
-  text-align: right;
-  cursor: text
+  text-align: right
 }
 .main-footer--address {
   text-align: right
@@ -878,7 +894,8 @@ button {
     margin-bottom: 5px
   }
   .discounts--header {
-    margin-left: 50px
+    margin-left: 50px;
+    margin-bottom: 320px
   }
   .discounts--info {
     padding: 5px 50px;
@@ -1053,7 +1070,11 @@ button {
     height: 0
   }
   .discounts--header {
-    margin-left: 50px
+    margin-left: 50px;
+    margin-bottom: 250px
+  }
+  .discounts--btns {
+    display: none
   }
   .services--list {
     margin-left: 0;
@@ -1228,11 +1249,8 @@ button {
   }
   .discounts--header {
     margin-top: 10px;
-    font-size: 35px
-  }
-  .discounts--img {
-    min-width: 100%;
-    height: 150%
+    font-size: 35px;
+    margin-bottom: 180px
   }
   .discounts--info {
     font-size: 15px;
@@ -1282,12 +1300,6 @@ button {
     font-size: 22px
   }
 }
-@media screen and (max-width:450px) {
-  .discounts--img {
-    min-width: 100%;
-    height: 100%
-  }
-}
 @media screen and (max-width:385px) {
   .main-header--show {
     width: 20px;
@@ -1323,12 +1335,6 @@ button {
 @media screen and (max-width:355px) {
   .main-header {
     font-size: 10px
-  }
-}
-@media screen and (max-width:350px) {
-  .discounts--img {
-    min-width: 150%;
-    height: 100%
   }
 }
 @media screen and (max-width:346px) {

@@ -9,8 +9,9 @@ $(function() {
 	var slideList = $(".discounts--list");
 
 	var checkAmount = slide.length;
-	var imgsColors = [];
+	var imgsColors = new Array;
 	var break_md = 980;
+	var elToChangeTag = $("[data-changeTag]");
 
 
 	for (var i = 0; i < imgs.length; i++) {  // Цикл анализирует основные цвета картинок слайдера и записывает их в массив imgsColors
@@ -29,7 +30,15 @@ $(function() {
 
 	equalsHeight(".service--item");
 
-	
+
+	$(slide).hammer().on("swipeleft", function(){
+		nextSlide();
+	});
+
+	$(slide).hammer().on("swiperight", function(){
+		prevSlide();
+	});
+
 	nextBtn.on("click", function() {
 		nextSlide();
 	});
@@ -60,7 +69,7 @@ $(function() {
 	});
 
 
-	cancelDrag($("a"));
+	replaceElementTag(elToChangeTag, '<span></span>', break_md);
 
 
 	cancelequalsHeight(".service--item", break_md);
@@ -72,9 +81,9 @@ $(function() {
 	paint(".services--header", 1);
 	paint(".services--wrap", 2);
 
-	paint(".test1", 1);
+/*	paint(".test1", 1);
 	paint(".test2", 2);
-	paint(".test3", 3);
+	paint(".test3", 3);*/
 
 	textColor(".services--header", 1);
 	textColor(".service--price", 1);
@@ -102,7 +111,6 @@ var slideCount = slide.length;
 var translateWidth = 0;
 
 function nextSlide() {
-
 	if (currentSlide == slideCount || currentSlide <= 0 || currentSlide > slideCount) {
 		slideList.css("transform", "translate(0, 0)");
 		check.eq(currentSlide-1).removeClass("discounts--check__active");
@@ -195,11 +203,17 @@ function equalsHeight (selector) { // Выравнивает ширины все
 };
 
 
-function cancelDrag (selector) {
-	$(selector).on("dragstart", function(e) {
-		e.preventDefault();
-	});
-};
+function replaceElementTag(selector, newTagString, windowWidth) {
+	if ($(window).width() >= windowWidth){
+		$(selector).each(function(){
+			var newElem = $(newTagString, {html: $(this).html()});
+			$.each(this.attributes, function() {
+				newElem.attr(this.name, this.value);
+			});
+			$(this).replaceWith(newElem);
+		});
+	}
+}
 
 
 function cancelequalsHeight (selector, windowWidth) {

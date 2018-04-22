@@ -6,6 +6,8 @@ const gcmq = require('gulp-group-css-media-queries');
 const	preproc = require('gulp-less');
 const cleanCSS = require('gulp-clean-css');
 const rename = require("gulp-rename");
+const imagemin = require('gulp-imagemin');
+
 const config = {
 	src: './src',
 	css: {
@@ -16,6 +18,10 @@ const config = {
 	html: '/*.html',
 	js: {
 		src: '/js/*.js'
+	},
+	img : { 
+		src: '/img/**/*{png, jpg, svg}',
+		dest: '/img'
 	}
 };
 
@@ -46,16 +52,27 @@ gulp.task('style', function() {
 
 gulp.task('serve', function() {
 	server.init({
-	  server: config.src,
-	  notify: false,
-	  open: true,
-	  cors: true,
-	  ui: false
+		server: config.src,
+		notify: false,
+		open: true,
+		cors: true,
+		ui: false
 	});
 
 	gulp.watch(config.src + config.css.watch, ["style"]);
 	gulp.watch(config.src + config.html, server.reload);
 	gulp.watch(config.src + config.js.src, server.reload);
 });
+
+
+gulp.task('images', () =>
+	gulp.src(config.src + config.img.src)
+	.pipe(imagemin([
+		imagemin.optipng({optimizationLevel: 3}),
+		imagemin.jpegtran({progressive: true}),
+		imagemin.svgo()
+		]))
+	.pipe(gulp.dest(config.src + config.img.dest))
+	);
 
 
