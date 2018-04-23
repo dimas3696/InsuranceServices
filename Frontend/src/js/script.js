@@ -1,18 +1,25 @@
-$(function() {
-	var img = document.querySelector(".discounts--item__active .discounts--img");
-	var imgs = document.querySelectorAll(".discounts--item .discounts--img");
-	var nextBtn = $(".discounts--btn__next");
-	var prevBtn = $(".discounts--btn__prev");
+var img = document.querySelector(".discounts--item__active .discounts--img");
+var imgs = document.querySelectorAll(".discounts--item .discounts--img");
+var nextBtn = $(".discounts--btn__next");
+var prevBtn = $(".discounts--btn__prev");
 	var checkEl = $(".discounts--check"); // Изначальные элементы точек слайдера
 	var checks = $(".discounts--checks");
 	var slide = $(".discounts--item");
 	var slideList = $(".discounts--list");
-
 	var checkAmount = slide.length;
 	var imgsColors = new Array;
-	var break_md = 980;
 	var elToChangeTag = $("[data-changeTag]");
+	var searchInput = $(".main-header--input");
+	var searchIcon = $(".main-header--show");
+	var logo = $(".main-header--logo");
+	var headerWrap = $(".main-header--wrap");
 
+	var break_md = 980;
+	var break_sm = 780;
+	var break_xs = 560;
+
+
+	$(function() {
 
 	for (var i = 0; i < imgs.length; i++) {  // Цикл анализирует основные цвета картинок слайдера и записывает их в массив imgsColors
 		setTimeout(imgsColors[i] = rememberCol(imgs[i]), 1);
@@ -39,12 +46,14 @@ $(function() {
 		prevSlide();
 	});
 
-	nextBtn.on("click", function() {
+	nextBtn.on("click", function(event) {
+		event.preventDefault();
 		nextSlide();
 	});
 
 
-	prevBtn.on("click", function() {
+	prevBtn.on("click", function(event) {
+		event.preventDefault();
 		prevSlide();
 	});
 
@@ -55,7 +64,7 @@ $(function() {
 		if (index + 1 != currentSlide) {
 			translateWidth = -slide.eq(currentSlide-1).width() * (index);
 			slideList.css({
-				'transform': 'translate(' + translateWidth + 'px, 0)'
+				"transform": "translate(" + translateWidth + "px, 0)"
 			});
 			check.eq(currentSlide-1).removeClass("discounts--check__active");
 
@@ -68,8 +77,15 @@ $(function() {
 		};
 	});
 
+	
+	searchIcon.on("click", function(event) {
+		event.preventDefault();
 
-	replaceElementTag(elToChangeTag, '<span></span>', break_md);
+		search();
+		
+	});
+
+	replaceElementTag(elToChangeTag, "<span></span>", break_md);
 
 
 	cancelequalsHeight(".service--item", break_md);
@@ -142,7 +158,7 @@ function prevSlide() {
 	if (currentSlide == 1 || currentSlide <= 0 || currentSlide > slideCount) {
 		translateWidth = -slide.eq(currentSlide-1).width() * (slideCount - 1);
 		slideList.css({
-			'transform': 'translate(' + translateWidth + 'px, 0)'
+			"transform": "translate(" + translateWidth + "px, 0)"
 		});
 		check.eq(currentSlide-1).removeClass("discounts--check__active");
 
@@ -155,7 +171,7 @@ function prevSlide() {
 	else {
 		translateWidth = -slide.eq(currentSlide-1).width() * (currentSlide - 2);
 		slideList.css({
-			'transform': 'translate(' + translateWidth + 'px, 0)'
+			"transform": "translate(" + translateWidth + "px, 0)"
 		});
 		check.eq(currentSlide-1).removeClass("discounts--check__active");
 
@@ -204,7 +220,7 @@ function equalsHeight (selector) { // Выравнивает ширины все
 
 
 function replaceElementTag(selector, newTagString, windowWidth) {
-	if ($(window).width() >= windowWidth){
+	if ($(window).outerWidth() >= windowWidth){
 		$(selector).each(function(){
 			var newElem = $(newTagString, {html: $(this).html()});
 			$.each(this.attributes, function() {
@@ -216,11 +232,32 @@ function replaceElementTag(selector, newTagString, windowWidth) {
 }
 
 
-function cancelequalsHeight (selector, windowWidth) {
-	if ($(window).width() <= windowWidth) {
+function cancelequalsHeight(selector, windowWidth) {
+	if ($(window).outerWidth() <= windowWidth) {
 		$(selector).css("min-height", "auto");
 	}
-
-
-
 };
+
+
+function search() {
+
+	if($(window).outerWidth() <= break_md && $(window).outerWidth() > break_sm) { // Экран от break_sm до break_md
+		searchInput.toggleClass("main-header--input__moved");
+		var breakToResizeLogo = 875;
+		if ($(window).outerWidth() <= breakToResizeLogo) {
+			logo.toggleClass("main-header--logo__moved");
+		}
+	}
+
+	else if($(window).outerWidth() <= break_sm && $(window).outerWidth() > break_xs) {
+		headerWrap.toggleClass("main-header--wrap__moved");
+		/*if(headerWrap.hasClass("main-header--wrap__moved")) {
+			searchInput.fadeIn(500);
+		}
+		else {
+			searchInput.fadeOut(500);
+		}*/
+		
+	}
+	
+}

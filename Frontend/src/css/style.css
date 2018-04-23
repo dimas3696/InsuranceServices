@@ -147,6 +147,9 @@ button {
 .accent-text {
   color: #5b8b2d
 }
+.seen {
+  display: block!important
+}
 .main-header {
   font-family: CenturyGothic,sans-serif;
   font-size: 16px;
@@ -164,7 +167,9 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: url(../img/header-bd.jpg) 0 0/cover no-repeat #050505
+  background: url(../img/header-bd.jpg) 0 0/cover no-repeat #050505;
+  -webkit-transition: padding-bottom 1s;
+  transition: padding-bottom 1s
 }
 .main-header--logo {
   box-sizing: border-box;
@@ -172,6 +177,8 @@ button {
   margin-left: 5px;
   margin-right: 5px;
   width: 450px;
+  -webkit-transition: width 1s;
+  transition: width 1s;
   height: auto
 }
 .main-header--search {
@@ -183,7 +190,8 @@ button {
   align-items: center;
   -webkit-box-ordinal-group: 2;
   -ms-flex-order: 1;
-  order: 1
+  order: 1;
+  position: relative
 }
 .main-header--show {
   border: none;
@@ -193,7 +201,7 @@ button {
   display: inline-block;
   width: 28px;
   height: 28px;
-  margin-right: 10px;
+  margin-right: 5px;
   background: url(../../img/search.png) center/cover no-repeat
 }
 .main-header--show::after {
@@ -211,6 +219,10 @@ button {
   padding: 10px 15px;
   box-sizing: border-box;
   min-width: 400px;
+  -webkit-transition: min-width 1s;
+  transition: min-width 1s;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
   font-size: 20px;
   background-color: rgba(255,255,255,.25);
   color: #92d5bc
@@ -761,7 +773,7 @@ button {
     font-size: 14px
   }
   .main-header--logo {
-    width: 350px
+    width: 300px
   }
   .main-header--input {
     min-width: 300px;
@@ -852,6 +864,9 @@ button {
   }
 }
 @media screen and (max-width:980px) {
+  .main-header--logo__moved {
+    width: 200px
+  }
   .main-header--search {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
@@ -859,18 +874,22 @@ button {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    margin-left: 20px
+    margin-left: 10px;
+    margin-right: 10px
   }
   .main-header--show {
-    margin-right: 0
+    margin-right: 10px
   }
   .main-header--input {
-    display: none
+    max-width: 0;
+    min-width: 0;
+    padding: 5px 0
+  }
+  .main-header--input__moved {
+    min-width: 200px;
+    padding: 4px 5px
   }
   .main-header--langs {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: flex-end;
@@ -1017,6 +1036,9 @@ button {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap
   }
+  .main-header--wrap__moved {
+    padding-bottom: 55px
+  }
   .main-header--logo {
     width: calc(66.66666666666667% - 10px);
     margin: 0 auto 20px
@@ -1033,12 +1055,20 @@ button {
     justify-content: flex-start;
     margin-left: 0
   }
-  .main-header--show::after {
-    display: inline-block
-  }
   .main-header--show {
     width: 20px;
     height: 20px
+  }
+  .main-header--show::after {
+    display: inline-block
+  }
+  .main-header--input {
+    min-width: 200px;
+    position: absolute;
+    margin-top: 10px;
+    top: 100%;
+    right: 0;
+    padding: 8px
   }
   .main-header--langs {
     -webkit-box-flex: 0;
@@ -1202,15 +1232,15 @@ button {
     margin-bottom: 20px;
     margin-right: 10px
   }
-  .main-header--show::after {
-    display: none
-  }
   .main-header--show {
     width: 28px;
     height: 28px;
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg)
+  }
+  .main-header--show::after {
+    display: none
   }
   .main-header--langs {
     margin-right: 10px;
