@@ -13,6 +13,7 @@ var prevBtn = $(".discounts--btn__prev");
 	var searchIcon = $(".main-header--show");
 	var logo = $(".main-header--logo");
 	var headerWrap = $(".main-header--wrap");
+	var contacts = $(".contacts--list");
 
 	var break_md = 980;
 	var break_sm = 780;
@@ -251,13 +252,44 @@ function search() {
 
 	else if($(window).outerWidth() <= break_sm && $(window).outerWidth() > break_xs) {
 		headerWrap.toggleClass("main-header--wrap__moved");
-		/*if(headerWrap.hasClass("main-header--wrap__moved")) {
-			searchInput.fadeIn(500);
+		
+		if(headerWrap.hasClass("main-header--wrap__moved")){
+			searchInput.css({
+				"display" : "block"
+			}).animate({
+				opacity: 1 
+			}, 1000);
 		}
-		else {
-			searchInput.fadeOut(500);
-		}*/
+		else if( !(headerWrap.hasClass("main-header--wrap__moved"))){
+			searchInput.animate({
+				opacity: 0 
+			}, 500);
+
+		}
 		
 	}
+
+	else if($(window).outerWidth() < break_sm) {
+		searchInput.css({
+			"top" : logo.outerHeight()
+		});
+
+		contacts.toggleClass("contacts--list__moved");
+
+		if(contacts.hasClass("contacts--list__moved")){
+			searchInput.css({
+				"display" : "block"
+			}).animate({
+				opacity: 1 
+			}, 1000);
+		}
+		else if( !(contacts.hasClass("contacts--list__moved"))){
+			searchInput.animate({
+				opacity: 0 
+			}, 500);
+
+		}
+	}
+
 	
 }

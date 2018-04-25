@@ -147,9 +147,6 @@ button {
 .accent-text {
   color: #5b8b2d
 }
-.seen {
-  display: block!important
-}
 .main-header {
   font-family: CenturyGothic,sans-serif;
   font-size: 16px;
@@ -190,8 +187,7 @@ button {
   align-items: center;
   -webkit-box-ordinal-group: 2;
   -ms-flex-order: 1;
-  order: 1;
-  position: relative
+  order: 1
 }
 .main-header--show {
   border: none;
@@ -221,8 +217,6 @@ button {
   min-width: 400px;
   -webkit-transition: min-width 1s;
   transition: min-width 1s;
-  -webkit-transition: opacity 1s;
-  transition: opacity 1s;
   font-size: 20px;
   background-color: rgba(255,255,255,.25);
   color: #92d5bc
@@ -266,7 +260,12 @@ button {
 .contacts--list {
   -webkit-box-ordinal-group: 4;
   -ms-flex-order: 3;
-  order: 3
+  order: 3;
+  -webkit-transition: margin-top,1s;
+  transition: margin-top,1s
+}
+.contacts--list__moved {
+  margin-top: 40px
 }
 .contacts--item {
   margin-bottom: 6px
@@ -886,6 +885,7 @@ button {
     padding: 5px 0
   }
   .main-header--input__moved {
+    margin-top: 20px;
     min-width: 200px;
     padding: 4px 5px
   }
@@ -1068,7 +1068,8 @@ button {
     margin-top: 10px;
     top: 100%;
     right: 0;
-    padding: 8px
+    padding: 8px;
+    opacity: 0
   }
   .main-header--langs {
     -webkit-box-flex: 0;
@@ -1240,6 +1241,15 @@ button {
     transform: rotate(-90deg)
   }
   .main-header--show::after {
+    display: none
+  }
+  .main-header--input {
+    min-width: 100%;
+    margin-top: 27px;
+    top: 0;
+    -webkit-transform: translateY(-25%);
+    -ms-transform: translateY(-25%);
+    transform: translateY(-25%);
     display: none
   }
   .main-header--langs {

@@ -1,6 +1,9 @@
 .contacts {
 	&--list {
     order: 3;
+
+    transition: margin-top, 1s;
+
 		.size-sm(10);
     .size-xs(12);
     .sm-block({
@@ -8,6 +11,9 @@
       justify-content: space-around;
       margin-right: 10px;
       });
+    &__moved {
+      margin-top: 40px;
+      };
   }
 
   &--item {

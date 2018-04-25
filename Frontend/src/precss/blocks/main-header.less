@@ -1,11 +1,8 @@
- .seen {
-	display: block !important;
-} 
 .main-header {
 	font-family: 'CenturyGothic', sans-serif;
 	font-size: 16px;
 	color: @header-color;
-	
+
 	.lg-block({
 		font-size: 14px;
 		});
@@ -72,8 +69,8 @@
 	&--search {
 		display: flex;
 		align-items: center;
-		order: 1;
-		position: relative;
+		order: 1;/* 
+		position: relative; */
 
 		.md-block({
 			flex-grow: 1;
@@ -152,11 +149,10 @@
 	&--input {
 		border: none;
 		padding: 0;
-		
+
 		box-sizing: border-box;
 		min-width: 400px;
 		transition: min-width 1s;
-		transition: opacity 1s;
 		padding: 10px 15px;
 
 		font-size: 20px;
@@ -180,18 +176,25 @@
 			padding: 5px 0;
 			});
 		.sm-block({ 
-			min-width: 200px;
-			position: absolute;
-			margin-top: 10px;
-			top: 100%;
-			right: 0;
-			padding: 8px 8px;
-			 /* display: none; */
-			/* opacity: 0;  */
+ 			min-width: 200px; 
+ 			position: absolute;
+ 			margin-top: 10px;
+ 			top: 100%;
+ 			right: 0;
+ 			padding: 8px 8px;
+ 			opacity: 0; 
+ 			});
+		.xs-block({
+			min-width: 100%;
+			margin-top: 27px;
+			top: 0;
+			transform: translateY(-25%);
+			display: none;
 			});
 
 		&__moved {
 			.md-block({
+				margin-top: 20px;
 				min-width: 200px;
 				padding: 4px 5px;
 				});
