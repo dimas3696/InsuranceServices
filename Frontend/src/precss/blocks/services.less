@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    .sm-block({
+    .md-block({
       margin-left: 0;
       margin-right: 0;
       });
@@ -14,7 +14,6 @@
   &--item { 
     .col();
     .size(6);
-    .size-md(12);
     position: relative;
     margin-bottom: 10px;
 
@@ -25,6 +24,9 @@
 
     .md-block({
       margin-bottom: 7px;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
       });
     .sm-block({
       margin-left: 0;
@@ -42,7 +44,8 @@
 
     &__long {
       background-image: url(../img/services-long-bg.png);
-      .size(12);
+      
+      width: 100%;
 
       .service--item {
         max-width: 16.6%;

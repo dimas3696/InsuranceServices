@@ -481,7 +481,7 @@ button {
 }
 .services--item__long {
   background-image: url(../img/services-long-bg.png);
-  width: calc(100% - 10px)
+  width: 100%
 }
 .services--item__long .service--item {
   max-width: 16.6%;
@@ -922,9 +922,15 @@ button {
     line-height: 1.4;
     background-color: rgba(0,0,0,.6)
   }
+  .services--list {
+    margin-left: 0;
+    margin-right: 0
+  }
   .services--item {
-    width: calc(100% - 10px);
-    margin-bottom: 7px
+    margin-bottom: 7px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0
   }
   .services--item__long .service--item {
     min-width: 33.3%;
@@ -1075,7 +1081,7 @@ button {
     -webkit-box-flex: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
-    margin-bottom: auto
+    margin-bottom: 20px
   }
   .main-header--lang {
     width: 45px;
@@ -1106,10 +1112,6 @@ button {
   }
   .discounts--btns {
     display: none
-  }
-  .services--list {
-    margin-left: 0;
-    margin-right: 0
   }
   .services--item {
     margin-left: 0;
@@ -1244,12 +1246,13 @@ button {
     display: none
   }
   .main-header--input {
-    min-width: 100%;
-    margin-top: 27px;
+    min-width: calc(80%);
+    margin-top: 18px;
     top: 0;
-    -webkit-transform: translateY(-25%);
-    -ms-transform: translateY(-25%);
-    transform: translateY(-25%);
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
     display: none
   }
   .main-header--langs {
