@@ -69,8 +69,8 @@
 	&--search {
 		display: flex;
 		align-items: center;
-		order: 1;/* 
-		position: relative; */
+		order: 1; 
+		position: relative; 
 
 		.md-block({
 			flex-grow: 1;
@@ -85,6 +85,7 @@
 			margin-left: 0;
 			});
 		.xs-block({
+			position: static;
 			order: 0;
 			justify-content: flex-end;
 			margin-bottom: 20px;
@@ -104,7 +105,7 @@
 		height: 28px;
 		margin-right: 5px;
 
-		background: url(../../img/search.png) center no-repeat;
+		background: url(../img/search.png) center no-repeat;
 		background-size: cover;
 
 		.md-block({
@@ -176,14 +177,14 @@
 			padding: 5px 0;
 			});
 		.sm-block({ 
- 			min-width: 200px; 
- 			position: absolute;
- 			margin-top: 10px;
- 			top: 100%;
- 			right: 0;
- 			padding: 8px 8px;
- 			opacity: 0; 
- 			});
+			min-width: 200px; 
+			position: absolute;
+			margin-top: 10px;
+			top: 100%;
+			right: 0;	
+			padding: 8px 8px;
+			opacity: 0; 
+			});
 		.xs-block({
 			min-width: calc(100% - 20px);
 			margin-top: 18px;
@@ -195,7 +196,6 @@
 
 		&__moved {
 			.md-block({
-				margin-top: 20px;
 				min-width: 200px;
 				padding: 4px 5px;
 				});
@@ -221,18 +221,34 @@
 	}
 
 	&--lang {
-		appearance: none;
-		cursor: pointer;
+		display: none;
+	}
 
+	&__ukr {
+		background-image: url(../img/lang-ukr.png);
+	}
+
+	&__rus {
+		background: url(../img/lang-rus.png);
+	}
+
+	&__active-lang {
+		.sm-block({
+			display: none;
+			});
+	}
+
+
+	&--lang-lab {
 		width: 21px;
 		height: 13px;
 		margin-bottom: 5px;
 		margin-top: 5px;
-
-		background: url(../../img/lang-rus.png) center no-repeat;
+		
+		font-size: 0;
+		background-position: center;
 		background-size: cover;
-		border: none;
-		border-radius: 0;
+		background-repeat: no-repeat;
 
 		.md-block({
 			width: 28px;
@@ -257,20 +273,5 @@
 			outline: 1px solid #71adab;
 			transition: all 0.1s;
 		}
-	}
-
-	&__ukr {
-		background-image: url(../../img/lang-ukr.png);
-	}
-
-	&__active-lang {
-		.sm-block({
-			display: none;
-			});
-	}
-
-
-	&--lang-lab {
-		font-size: 0;
 	}
 }

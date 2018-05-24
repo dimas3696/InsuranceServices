@@ -187,7 +187,8 @@ button {
   align-items: center;
   -webkit-box-ordinal-group: 2;
   -ms-flex-order: 1;
-  order: 1
+  order: 1;
+  position: relative
 }
 .main-header--show {
   border: none;
@@ -198,7 +199,7 @@ button {
   width: 28px;
   height: 28px;
   margin-right: 5px;
-  background: url(../../img/search.png) center/cover no-repeat
+  background: url(../img/search.png) center/cover no-repeat
 }
 .main-header--show::after {
   content: "поиск";
@@ -234,28 +235,28 @@ button {
   flex-direction: column
 }
 .main-header--lang {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
+  display: none
+}
+.main-header__ukr {
+  background-image: url(../img/lang-ukr.png)
+}
+.main-header__rus {
+  background: url(../img/lang-rus.png)
+}
+.main-header--lang-lab {
   width: 21px;
   height: 13px;
   margin-bottom: 5px;
   margin-top: 5px;
-  background: url(../../img/lang-rus.png) center/cover no-repeat;
-  border: none;
-  border-radius: 0
+  font-size: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat
 }
-.main-header--lang:hover {
+.main-header--lang-lab:hover {
   outline: #71adab solid 1px;
   -webkit-transition: all .1s;
   transition: all .1s
-}
-.main-header__ukr {
-  background-image: url(../../img/lang-ukr.png)
-}
-.main-header--lang-lab {
-  font-size: 0
 }
 .contacts--list {
   -webkit-box-ordinal-group: 4;
@@ -290,19 +291,19 @@ button {
   width: 21px;
   height: 15px;
   left: -28px;
-  background: url(../../img/mail.png) center/cover no-repeat
+  background: url(../img/mail.png) center/cover no-repeat
 }
 .contacts--link__phone::before {
   width: 18px;
   height: 19px;
   left: -25px;
-  background: url(../../img/phone.png) center/cover no-repeat
+  background: url(../img/phone.png) center/cover no-repeat
 }
 .contacts--link__location::before {
   width: 16px;
   height: 22px;
   left: -24px;
-  background: url(../../img/location.png) center/cover no-repeat
+  background: url(../img/location.png) center/cover no-repeat
 }
 .discounts {
   position: relative;
@@ -468,8 +469,6 @@ button {
   position: relative;
   margin-bottom: 10px;
   background-color: #99ce94;
-  -webkit-transition: background-color 1s ease;
-  transition: background-color 1s ease;
   background-repeat: no-repeat;
   background-size: cover
 }
@@ -493,9 +492,7 @@ button {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #99ce94;
-  -webkit-transition: background-color 1s ease;
-  transition: background-color 1s ease
+  background-color: #99ce94
 }
 .services--header__left {
   background-image: url(../img/services-left-bg.png);
@@ -522,9 +519,7 @@ button {
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  background-color: #588b52;
-  -webkit-transition: background-color .8s;
-  transition: background-color .8s
+  background-color: #588b52
 }
 .services--wrap__left {
   background-image: url(../img/services-left-bg.png)
@@ -543,10 +538,10 @@ button {
 }
 .service--list::-webkit-scrollbar {
   height: 13px;
-  background: url(../../img/scroll-bg.jpg) #272727
+  background: url(../img/scroll-bg.jpg) #272727
 }
 .service--list::-webkit-scrollbar-thumb {
-  background: url(../../img/scroll-thumb.jpg) #838383
+  background: url(../img/scroll-thumb.jpg) #838383
 }
 .service--item {
   min-width: 33.3%;
@@ -613,7 +608,7 @@ button {
   color: #a6a6a6
 }
 .partners--wrap {
-  background: url(../../img/partners-bg.jpg) center/cover no-repeat
+  background: url(../img/partners-bg.jpg) center/cover no-repeat
 }
 .partners--header {
   display: inline-block;
@@ -885,7 +880,6 @@ button {
     padding: 5px 0
   }
   .main-header--input__moved {
-    margin-top: 20px;
     min-width: 200px;
     padding: 4px 5px
   }
@@ -895,7 +889,7 @@ button {
     align-items: flex-end;
     margin-right: 30px
   }
-  .main-header--lang {
+  .main-header--lang-lab {
     width: 28px;
     height: 17px;
     margin-bottom: 3px;
@@ -1083,12 +1077,12 @@ button {
     flex-grow: 0;
     margin-bottom: 20px
   }
-  .main-header--lang {
-    width: 45px;
-    height: 27px
-  }
   .main-header__active-lang {
     display: none
+  }
+  .main-header--lang-lab {
+    width: 45px;
+    height: 27px
   }
   .contacts--list {
     width: calc(83.33333333333334% - 10px);
@@ -1226,6 +1220,7 @@ button {
     flex-grow: 1
   }
   .main-header--search {
+    position: static;
     -webkit-box-ordinal-group: 1;
     -ms-flex-order: 0;
     order: 0;
@@ -1259,7 +1254,7 @@ button {
     margin-right: 10px;
     margin-bottom: 20px
   }
-  .main-header--lang {
+  .main-header--lang-lab {
     width: 25px;
     height: 15px
   }
@@ -1348,7 +1343,7 @@ button {
     width: 20px;
     height: 20px
   }
-  .main-header--lang {
+  .main-header--lang-lab {
     width: 20px;
     height: 12px
   }
